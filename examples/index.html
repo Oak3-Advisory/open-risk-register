@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Risk Assessment Examples | Open Risk Register</title>
+  <meta name="description" content="Three worked NIS2 risk assessment examples: a small healthcare provider, a mid-size logistics company, and an IT service provider. See how each approaches NIST SP 800-30." />
+  <link rel="canonical" href="https://openriskregister.org/examples/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Risk Assessment Examples | Open Risk Register" />
+  <meta property="og:description" content="Three worked NIS2 risk assessment examples: healthcare provider, logistics company, and IT service provider." />
+  <meta property="og:url" content="https://openriskregister.org/examples/" />
+  <meta property="og:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Risk Assessment Examples | Open Risk Register" />
+  <meta name="twitter:description" content="Three worked NIS2 risk assessment examples." />
+  <meta name="twitter:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <link rel="stylesheet" href="/dist/style.css" />
+  <link rel="stylesheet" href="/dist/site.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://openriskregister.org/" },
+      { "@type": "ListItem", "position": 2, "name": "Risk Assessment Examples", "item": "https://openriskregister.org/examples/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="header-brand" aria-label="Open Risk Register &mdash; Home">
+        <svg class="header-icon" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+        </svg>
+        <div>
+          <span class="header-title">Open Risk Register</span>
+          <span class="header-subtitle">Free NIS2 Risk Assessment Tool</span>
+        </div>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/nis2-risk-assessment-tool/" class="nav-link">NIS2 Risk Tool</a>
+        <a href="/nis2-risk-register-template/" class="nav-link">Templates</a>
+        <a href="/nist-sp-800-30-risk-assessment-template/" class="nav-link">NIST 800-30</a>
+        <a href="/alternatives/" class="nav-link">Alternatives</a>
+        <a href="/source-code/" class="nav-link">Open Source</a>
+        <a href="/app/" class="btn btn-primary btn-sm">Start Assessment &#x2192;</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav aria-label="Breadcrumb" class="breadcrumb-wrap">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </li>
+      <li class="breadcrumb-sep" aria-hidden="true">/</li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name">Risk Assessment Examples</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    </ol>
+  </nav>
+
+  <section class="page-hero" aria-labelledby="page-h1">
+    <div class="page-hero-inner">
+      <h1 id="page-h1">Risk Assessment Examples</h1>
+      <p>Three worked scenarios showing how different types of organisations approach a NIST SP 800-30 risk assessment under NIS2. Use these as a starting point for structuring your own assessment.</p>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <section class="content-section" aria-labelledby="howto-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">How to use these examples</span>
+        <h2 class="section-title" id="howto-title">Worked examples, not templates</h2>
+        <p class="section-body">
+          Each example below describes a fictional organisation, its risk landscape, and how it would
+          approach a NIS2-aligned NIST SP 800-30 risk assessment. The threat sources, threat events,
+          likelihood scores, and impact areas are illustrative &mdash; your organisation&rsquo;s situation will differ.
+        </p>
+        <p class="section-body">
+          Use these examples to understand the scope and structure of an assessment before starting your own.
+          They answer the most common question practitioners ask: &ldquo;What should I actually put in each step?&rdquo;
+        </p>
+        <div class="disclaimer-box" role="note" aria-label="Example disclaimer">
+          <strong>These examples are illustrative only.</strong> They do not constitute professional security
+          advice, legal compliance guidance, or a complete representation of any real organisation&rsquo;s risk
+          landscape. Every organisation must conduct its own assessment based on its specific context.
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section--alt" aria-labelledby="example1-title">
+      <div class="section-inner">
+        <span class="section-label">Example 1</span>
+        <h2 class="section-title" id="example1-title">Small healthcare provider</h2>
+        <p class="section-body">
+          A private medical clinic with 65 employees in the Netherlands. As a health sector entity with
+          more than 50 employees, it qualifies as an important entity under NIS2. The clinic runs an
+          electronic patient record (EPR) system, a scheduling platform, and a laboratory information
+          system (LIS) connected to an external laboratory.
+        </p>
+        <div class="persona-grid">
+          <div class="persona-card">
+            <span class="persona-role">Risk landscape</span>
+            <h3>Key risk areas</h3>
+            <p>Patient data confidentiality is the primary concern. Ransomware targeting healthcare is a well-documented threat. The EPR is internet-accessible for remote consultations. The external lab connection is a third-party dependency with limited contractual security requirements.</p>
+          </div>
+          <div class="persona-card">
+            <span class="persona-role">Assessment scope</span>
+            <h3>What to assess first</h3>
+            <p>Start with the EPR as the highest-criticality asset. Scope the assessment to: the EPR and its hosting environment, the scheduling portal, and the LIS-to-lab integration. Document that physical building systems are out of scope for this assessment.</p>
+          </div>
+          <div class="persona-card">
+            <span class="persona-role">Assessment approach</span>
+            <h3>How to structure the assessment</h3>
+            <p>Use system-level tier (Tier 3). Prioritise adversarial threat sources (cyber criminals, ransomware operators). Key threat events: credential theft via phishing, ransomware on the EPR, and supply chain compromise via the lab integration.</p>
+          </div>
+        </div>
+        <div class="steps-grid mt-8">
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">1</div>
+            <h3>Threat sources to include</h3>
+            <p>Cyber criminals (ransomware operators), opportunistic attackers exploiting unpatched software, and the third-party laboratory as an inadvertent supply chain risk source.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">2</div>
+            <h3>Representative threat events</h3>
+            <p>Phishing leading to credential theft; ransomware encrypting the EPR; unauthorised access to patient records via weak portal authentication; data leakage through the lab API.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">3</div>
+            <h3>Key vulnerabilities</h3>
+            <p>No MFA on EPR remote access; backup recovery not tested in 12 months; no security requirements in the laboratory service contract; no staff phishing simulation conducted.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">4</div>
+            <h3>Expected high-risk findings</h3>
+            <p>Ransomware on EPR (Very High impact: patient care disruption, GDPR notification, NIS2 incident reporting). Credential theft on portal (High likelihood given no MFA; High impact on patient data).</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">5</div>
+            <h3>NIS2 Article 21 gaps likely identified</h3>
+            <p>Art. 21(2)(j): No MFA on remote access. Art. 21(2)(d): No contractual security requirements with laboratory. Art. 21(2)(c): Untested recovery procedures. Art. 21(2)(g): No recent staff security training.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">6</div>
+            <h3>Recommended next steps</h3>
+            <p>Implement MFA on EPR remote access (quick win). Test backup recovery. Add security obligations to laboratory contract at next renewal. Schedule a staff phishing simulation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="example2-title">
+      <div class="section-inner">
+        <span class="section-label">Example 2</span>
+        <h2 class="section-title" id="example2-title">Mid-size logistics company</h2>
+        <p class="section-body">
+          A road freight and last-mile delivery company with 280 employees operating across Belgium and
+          Germany. With more than 250 employees in transport, it qualifies as an essential entity under NIS2.
+          It operates a fleet management system, a warehouse management system (WMS), a customer portal, and
+          relies on GPS tracking and route optimisation software from a US-based SaaS provider.
+        </p>
+        <div class="persona-grid">
+          <div class="persona-card">
+            <span class="persona-role">Risk landscape</span>
+            <h3>Key risk areas</h3>
+            <p>Operational continuity is critical &mdash; downtime translates to missed deliveries and contractual penalties. The company handles time-sensitive pharmaceutical and food shipments. The GPS/routing SaaS has servers outside the EU.</p>
+          </div>
+          <div class="persona-card">
+            <span class="persona-role">Assessment scope</span>
+            <h3>What to assess first</h3>
+            <p>Prioritise the WMS and fleet management system as the most operationally critical assets. Conduct a dedicated supply chain assessment for the GPS/routing SaaS. The customer portal is a separate, lower-priority assessment.</p>
+          </div>
+          <div class="persona-card">
+            <span class="persona-role">Assessment approach</span>
+            <h3>How to structure the assessment</h3>
+            <p>Use system-level tier for WMS and fleet management. Include structural and environmental threat sources. Score cascading impact: a WMS outage affects warehouse operations, dispatch, and invoicing simultaneously.</p>
+          </div>
+        </div>
+        <div class="steps-grid mt-8">
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">1</div>
+            <h3>Threat sources to include</h3>
+            <p>Cyber criminals targeting logistics for extortion, nation-state actors (transport is a NIS2 critical sector), structural hardware failures, and the US-based SaaS vendor as a supply chain risk source.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">2</div>
+            <h3>Representative threat events</h3>
+            <p>Ransomware encrypting the WMS; GPS system unavailability due to vendor outage; supply chain compromise via SaaS provider update mechanism; insider misuse of fleet tracking data.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">3</div>
+            <h3>Key vulnerabilities</h3>
+            <p>Single SaaS dependency with no contractual uptime guarantees; WMS backup on same network segment as primary; no multi-site incident response plan tested; driver mobile devices not enrolled in MDM.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">4</div>
+            <h3>Expected high-risk findings</h3>
+            <p>Ransomware on WMS (Very High: multi-site shutdown, NIS2 incident reporting as essential entity, contractual penalties). SaaS GPS outage (High: no manual fallback procedure documented).</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">5</div>
+            <h3>NIS2 Article 21 gaps likely identified</h3>
+            <p>Art. 21(2)(c): No tested multi-site business continuity plan. Art. 21(2)(d): SaaS vendor not assessed; EU data residency not contractually addressed. Art. 21(2)(b): No WMS incident response playbook.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">6</div>
+            <h3>Recommended next steps</h3>
+            <p>Negotiate SaaS contract to include uptime SLA, security obligations, and EU data residency. Develop and test WMS incident response playbook. Move WMS backups to an isolated network segment. Enrol driver devices in MDM.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section--alt" aria-labelledby="example3-title">
+      <div class="section-inner">
+        <span class="section-label">Example 3</span>
+        <h2 class="section-title" id="example3-title">IT service provider (MSP)</h2>
+        <p class="section-body">
+          A managed IT service provider with 90 employees headquartered in Denmark, providing infrastructure
+          management, helpdesk, and cloud migration services to 45 client organisations. As an ICT service
+          management provider with more than 50 employees, it is an important entity under NIS2. It holds
+          privileged access to the network infrastructure of all 45 clients.
+        </p>
+        <div class="persona-grid">
+          <div class="persona-card">
+            <span class="persona-role">Risk landscape</span>
+            <h3>Key risk areas</h3>
+            <p>MSPs are high-value targets because a single compromise gives access to all client environments. The MSP&rsquo;s own security posture is a supply chain risk for each of its 45 clients, creating NIS2 obligations and significant reputational liability.</p>
+          </div>
+          <div class="persona-card">
+            <span class="persona-role">Assessment scope</span>
+            <h3>What to assess first</h3>
+            <p>Prioritise the privileged access management (PAM) infrastructure and remote monitoring and management (RMM) platform. Compromise of either provides immediate lateral movement to all clients. Assess them as separate system-level assessments.</p>
+          </div>
+          <div class="persona-card">
+            <span class="persona-role">Assessment approach</span>
+            <h3>How to structure the assessment</h3>
+            <p>Use system-level tier for PAM and RMM separately. Frame impact in terms of client harm, not only internal harm. Address the MSP&rsquo;s dual role as a NIS2-subject entity and as a supply chain risk source for its clients.</p>
+          </div>
+        </div>
+        <div class="steps-grid mt-8">
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">1</div>
+            <h3>Threat sources to include</h3>
+            <p>Nation-state actors (MSPs are explicitly targeted in threat intelligence), organised crime groups, malicious insiders with client access, and the RMM software vendor as a supply chain risk source.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">2</div>
+            <h3>Representative threat events</h3>
+            <p>Adversary compromise of RMM to push malicious scripts to all 45 clients; credential theft from PAM; insider exfiltration of client data; supply chain attack via RMM vendor update mechanism.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">3</div>
+            <h3>Key vulnerabilities</h3>
+            <p>RMM access uses shared credentials across the technician team (no individual accountability); no client access segmentation in PAM; no anomaly detection on RMM usage; no vetting process for new staff before granting client access.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">4</div>
+            <h3>Expected high-risk findings</h3>
+            <p>RMM platform compromise (Very High: simultaneous exposure of all 45 clients; NIS2 incident notification obligations; severe reputational damage). Insider credential misuse (High: limited detection; broad client access scope).</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">5</div>
+            <h3>NIS2 Article 21 gaps likely identified</h3>
+            <p>Art. 21(2)(i): Shared credentials; no individual accountability for privileged actions. Art. 21(2)(f): No anomaly detection or audit logging on RMM. Art. 21(2)(d): No security requirements in client contracts covering the MSP&rsquo;s own security posture.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">6</div>
+            <h3>Recommended next steps</h3>
+            <p>Migrate RMM to individual named accounts with MFA immediately. Implement client access segmentation in PAM. Enable RMM audit logging and alerting for unusual access patterns. Add MSP security obligations to client contracts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section--navy" aria-labelledby="start-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Your turn</span>
+        <h2 class="section-title" id="start-title">Ready to run your own assessment?</h2>
+        <p class="section-body">
+          Open Risk Register walks you through the same structured NIST SP 800-30 process used in the
+          examples above. Each step builds on the last &mdash; from defining your scope to a prioritised
+          risk register you can present to management and regulators. Entirely browser-based, no sign-up required.
+        </p>
+      </div>
+    </section>
+
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-section-inner">
+        <h2 id="cta-title">Start your risk assessment</h2>
+        <p>Free, private, and in your browser. No sign-up required.</p>
+        <a href="/app/" class="btn-cta">Open the Tool &#x2192;</a>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer site-footer--rich" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <p class="footer-brand-name">Open Risk Register</p>
+        <p>Free, open-source NIS2 risk assessment tool based on NIST SP 800-30 R1. All data stays in your browser &mdash; no account, no server, no cost.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tool</h4>
+        <ul>
+          <li><a href="/app/">Start Assessment</a></li>
+          <li><a href="/nis2-risk-assessment-tool/">NIS2 Risk Assessment</a></li>
+          <li><a href="/nis2-risk-register-template/">Risk Register Template</a></li>
+          <li><a href="/examples/">Examples</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/nis2-for-smes/">NIS2 for SMEs</a></li>
+          <li><a href="/nis2-article-21-checklist/">Article 21 Checklist</a></li>
+          <li><a href="/nist-sp-800-30-risk-assessment-template/">NIST SP 800-30</a></li>
+          <li><a href="/local-first-security/">Local-First Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="/source-code/">Source Code</a></li>
+          <li><a href="/open-source-nis2-tool/">Open Source</a></li>
+          <li><a href="/alternatives/">Alternatives</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Open Risk Register. Developed by <a href="https://oak3.org" rel="noopener noreferrer" target="_blank">Oak3 Advisory B.V.</a></p>
+      <p>No data is transmitted to any server. All processing happens in your browser.</p>
+    </div>
+  </footer>
+
+  <script src="/dist/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Open Source NIS2 Tool — Why Open Source Matters for Security | Open Risk Register</title>
+  <meta name="description" content="Why Open Risk Register is open source: transparency, auditability, and no vendor lock-in. Learn how to verify the tool, inspect the code, and contribute on GitHub." />
+  <link rel="canonical" href="https://openriskregister.org/open-source-nis2-tool/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Open Source NIS2 Tool — Why Open Source Matters for Security | Open Risk Register" />
+  <meta property="og:description" content="Why Open Risk Register is open source: transparency, auditability, and no vendor lock-in. Learn how to verify the tool, inspect the code, and contribute." />
+  <meta property="og:url" content="https://openriskregister.org/open-source-nis2-tool/" />
+  <meta property="og:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Open Source NIS2 Tool — Why Open Source Matters for Security | Open Risk Register" />
+  <meta name="twitter:description" content="Why Open Risk Register is open source: transparency, auditability, and no vendor lock-in. Learn how to verify the tool, inspect the code, and contribute." />
+  <meta name="twitter:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <link rel="stylesheet" href="/dist/style.css" />
+  <link rel="stylesheet" href="/dist/site.css" />
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://openriskregister.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Open Source NIS2 Tool", "item": "https://openriskregister.org/open-source-nis2-tool/" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Open Risk Register",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Any (browser-based)",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "url": "https://openriskregister.org/app/",
+      "description": "Free, open-source NIS2 risk assessment tool based on NIST SP 800-30 Rev. 1. All data stays in your browser.",
+      "license": "https://opensource.org/licenses/MIT"
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="header-brand" aria-label="Open Risk Register &mdash; Home">
+        <svg class="header-icon" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+        </svg>
+        <div>
+          <span class="header-title">Open Risk Register</span>
+          <span class="header-subtitle">Free NIS2 Risk Assessment Tool</span>
+        </div>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/nis2-risk-assessment-tool/" class="nav-link">NIS2 Risk Tool</a>
+        <a href="/nis2-risk-register-template/" class="nav-link">Templates</a>
+        <a href="/nist-sp-800-30-risk-assessment-template/" class="nav-link">NIST 800-30</a>
+        <a href="/alternatives/" class="nav-link">Alternatives</a>
+        <a href="/source-code/" class="nav-link active">Open Source</a>
+        <a href="/app/" class="btn btn-primary btn-sm">Start Assessment &#x2192;</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav aria-label="Breadcrumb" class="breadcrumb-wrap">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </li>
+      <li class="breadcrumb-sep" aria-hidden="true">/</li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name">Open Source NIS2 Tool</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    </ol>
+  </nav>
+
+  <section class="page-hero" aria-labelledby="page-h1">
+    <div class="page-hero-inner">
+      <h1 id="page-h1">Open Source NIS2 Risk Assessment Tool</h1>
+      <p>Security tools that handle sensitive data about your organisation&rsquo;s vulnerabilities must be trustworthy by design &mdash; not by promise. Open Risk Register is open source so you never have to take our word for it.</p>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <section class="content-section" aria-labelledby="why-open-source-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Why it matters</span>
+        <h2 class="section-title" id="why-open-source-title">Why open source matters for NIS2 security tools</h2>
+        <p class="section-body">
+          A risk assessment tool processes some of the most sensitive information in your organisation: your vulnerabilities, your threat landscape, and your risk tolerance. Using a closed-source tool means trusting that vendor completely &mdash; with no way to verify what happens to your data. Open source eliminates that leap of faith.
+        </p>
+        <div class="feature-row">
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" stroke="currentColor" stroke-width="2"/>
+                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Transparency</h3>
+            <p>Every function that reads, writes, or processes your assessment data is public. There are no hidden API calls, no telemetry, and no obfuscated logic.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Auditability</h3>
+            <p>Your IT team, your auditor, or your NIS2 supervisory authority can inspect exactly how the risk scoring is calculated and how data is stored.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1" stroke="currentColor" stroke-width="2"/>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" stroke="currentColor" stroke-width="2"/>
+                <line x1="6" y1="1" x2="6" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="10" y1="1" x2="10" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="14" y1="1" x2="14" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>No vendor lock-in</h3>
+            <p>Fork it, self-host it, or modify it to fit your organisation&rsquo;s needs. No subscription, no account, and no risk of the tool disappearing behind a paywall.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section--alt" aria-labelledby="verify-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Verify for yourself</span>
+        <h2 class="section-title" id="verify-title">How to verify the tool</h2>
+        <p class="section-body">
+          You don&rsquo;t have to trust our description of how the tool works. Here are three independent ways to confirm the tool does exactly what it claims.
+        </p>
+        <ol class="steps-grid" aria-label="Verification steps">
+          <li class="step-item">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Inspect the source code</h3>
+            <p>Browse the GitHub repository and read the JavaScript files directly. The assessment logic is written in plain, unobfuscated ES2020 modules with no external dependencies to audit.</p>
+          </li>
+          <li class="step-item">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Check browser DevTools</h3>
+            <p>Open your browser&rsquo;s Network tab while using the tool. You will see zero outbound requests to any third-party server &mdash; all data operations happen entirely in-browser.</p>
+          </li>
+          <li class="step-item">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Review the Content Security Policy</h3>
+            <p>The CSP header on every page enforces <code>script-src 'self'</code> and <code>style-src 'self'</code>, making it technically impossible for injected scripts or external resources to run.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="data-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Your data stays yours</span>
+        <h2 class="section-title" id="data-title">No vendor lock-in, no data exposure</h2>
+        <p class="section-body">
+          Many cloud-based GRC and risk management tools store your assessment data on their servers &mdash; creating data protection risk, potential subpoena exposure, and dependency on a third-party vendor&rsquo;s continued operation. Open Risk Register takes a different approach.
+        </p>
+        <div class="feature-row">
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Browser-local storage</h3>
+            <p>All assessment data is written exclusively to your browser&rsquo;s <code>localStorage</code>. It never leaves your device unless you explicitly export it.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2"/>
+                <polyline points="7 10 12 15 17 10" stroke="currentColor" stroke-width="2"/>
+                <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Portable JSON export</h3>
+            <p>Export your full risk register as a JSON file at any time. You own the data, and you can re-import it into any future version of the tool.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2"/>
+                <polyline points="9 22 9 12 15 12 15 22" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Self-hostable</h3>
+            <p>Download the built files and serve them from your own web server or intranet. Ideal for organisations that require air-gapped or on-premise tooling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section--navy" aria-labelledby="contribute-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Get involved</span>
+        <h2 class="section-title" id="contribute-title">How to contribute</h2>
+        <p class="section-body">
+          Open Risk Register improves when more people use it, review it, and contribute to it. There are several ways to get involved &mdash; no coding experience required for some of them.
+        </p>
+        <div class="feature-row">
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Report an issue</h3>
+            <p>Found a bug, an incorrect risk score, or a NIS2 requirement that isn&rsquo;t covered? Open an issue on GitHub. Clear, well-described issues are enormously valuable.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 20h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Submit a pull request</h3>
+            <p>Improvements to the assessment logic, UI accessibility, or translated content are all welcome. Fork the repository, make your changes, and open a PR for review.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Spread the word</h3>
+            <p>If Open Risk Register has been useful for your NIS2 compliance work, telling colleagues, sharing on LinkedIn, or linking from your own site makes a real difference.</p>
+          </div>
+        </div>
+        <a href="https://github.com/Oak3-Advisory/open-risk-register" class="btn-cta mt-8" target="_blank" rel="noopener noreferrer">View on GitHub &#x2192;</a>
+      </div>
+    </section>
+
+    <section class="content-section content-section--alt" aria-labelledby="nis2-trust-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">NIS2 &amp; trust</span>
+        <h2 class="section-title" id="nis2-trust-title">Open source and NIS2 supply chain due diligence</h2>
+        <p class="section-body">
+          NIS2 Article 21(2)(d) requires entities to address security risks in their supply chain, including the software tools used in security processes. When you use an open source tool with a publicly auditable codebase, you can satisfy your own due diligence obligation by reviewing the code &mdash; something impossible with closed-source alternatives.
+        </p>
+        <div class="card mt-8">
+          <table>
+            <caption class="hidden">Open source vs closed source for NIS2 tooling</caption>
+            <thead>
+              <tr>
+                <th scope="col">Consideration</th>
+                <th scope="col">Open source (this tool)</th>
+                <th scope="col">Closed source / SaaS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Code auditability</strong></td>
+                <td>Full &mdash; inspect every function</td>
+                <td>None &mdash; trust the vendor</td>
+              </tr>
+              <tr>
+                <td><strong>Data location</strong></td>
+                <td>Your browser only</td>
+                <td>Vendor servers (jurisdiction varies)</td>
+              </tr>
+              <tr>
+                <td><strong>Data breach risk</strong></td>
+                <td>None (no server-side storage)</td>
+                <td>Vendor breach exposes your risk data</td>
+              </tr>
+              <tr>
+                <td><strong>Vendor lock-in</strong></td>
+                <td>None &mdash; fork or self-host</td>
+                <td>High &mdash; data migration often difficult</td>
+              </tr>
+              <tr>
+                <td><strong>Subpoena / legal exposure</strong></td>
+                <td>None (vendor holds no data)</td>
+                <td>Vendor may be compelled to disclose</td>
+              </tr>
+              <tr>
+                <td><strong>Cost</strong></td>
+                <td>Free, always</td>
+                <td>Subscription or per-seat pricing</td>
+              </tr>
+              <tr>
+                <td><strong>NIS2 supply chain due diligence</strong></td>
+                <td>Satisfiable via code review</td>
+                <td>Requires contractual SLAs and audits</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-section-inner">
+        <h2 id="cta-title">Ready to run a transparent, auditable risk assessment?</h2>
+        <p>No account required. No data leaves your browser. Open source from top to bottom.</p>
+        <a href="/app/" class="btn-cta">Start Assessment &#x2192;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer site-footer--rich" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <p class="footer-brand-name">Open Risk Register</p>
+        <p>Free, open-source NIS2 risk assessment tool based on NIST SP 800-30 R1. All data stays in your browser &mdash; no account, no server, no cost.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tool</h4>
+        <ul>
+          <li><a href="/app/">Start Assessment</a></li>
+          <li><a href="/nis2-risk-assessment-tool/">NIS2 Risk Assessment</a></li>
+          <li><a href="/nis2-risk-register-template/">Risk Register Template</a></li>
+          <li><a href="/examples/">Examples</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/nis2-for-smes/">NIS2 for SMEs</a></li>
+          <li><a href="/nis2-article-21-checklist/">Article 21 Checklist</a></li>
+          <li><a href="/nist-sp-800-30-risk-assessment-template/">NIST SP 800-30</a></li>
+          <li><a href="/local-first-security/">Local-First Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="/source-code/">Source Code</a></li>
+          <li><a href="/open-source-nis2-tool/">Open Source</a></li>
+          <li><a href="/alternatives/">Alternatives</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Open Risk Register. Developed by <a href="https://oak3.org" rel="noopener noreferrer" target="_blank">Oak3 Advisory B.V.</a></p>
+      <p>No data is transmitted to any server. All processing happens in your browser.</p>
+    </div>
+  </footer>
+
+  <script src="/dist/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+/**
+ * Guided threat scenario definitions.
+ * Each scenario pre-populates an assessment with evidence-based threat data.
+ * Sources: CISA advisories, ENISA Threat Landscape, Verizon DBIR, IBM Cost of a Data Breach.
+ */
+
+export const SCENARIOS = [
+  {
+    id: 'ransomware',
+    name: 'Ransomware Attack',
+    description: 'Pre-filled with threat sources, attack paths, and common vulnerabilities drawn from CISA advisories and ENISA Threat Landscape reports. Each item includes a source reference and a prompt to adapt it to your environment.',
+    icon: '<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>',
+    tags: ['Cybercriminal', 'Extortion', 'High impact'],
+    available: true,
+    defaults: {
+      name: 'Ransomware Risk Assessment',
+      purpose: "Assess the organisation\u2019s exposure to ransomware attacks \u2014 covering the likelihood of successful compromise, the potential operational and financial impact, and the effectiveness of existing controls.",
+      scope: 'All IT systems handling business-critical data, including endpoints, servers, backup infrastructure, and internet-facing remote access services (VPN, RDP, cloud portals).',
+      assumptions: 'The organisation has at least basic IT infrastructure. Remote access is used by some staff. Cloud or on-premises email is in use. No specialised OT/ICS systems are in scope unless added manually.',
+    },
+    threatSources: [
+      {
+        name: 'Ransomware Affiliate / Cybercriminal Group',
+        type: 'Adversarial',
+        description: 'Organised cybercriminal groups or Ransomware-as-a-Service (RaaS) affiliates targeting organisations for financial gain through encryption and/or data-theft extortion. Affiliates typically purchase initial access from brokers.',
+        capability: 'High',
+        intent: 'High',
+        targeting: 'Moderate',
+        notes: 'Sources: CISA #StopRansomware advisories; ENISA Threat Landscape 2023; Sophos State of Ransomware 2024. Adapt capability/intent ratings to reflect intelligence on groups active in your sector.',
+      },
+      {
+        name: 'Nation-State Affiliated Threat Actor',
+        type: 'Adversarial',
+        description: 'State-sponsored or state-aligned actors deploying ransomware or wiper malware for financial gain or geopolitical disruption. Notable examples: Sandworm (Russia), Lazarus Group (North Korea).',
+        capability: 'Very High',
+        intent: 'High',
+        targeting: 'Low',
+        notes: 'Sources: CISA Alert AA24-109A; ENISA Threat Landscape for Critical Infrastructure. Remove this source if your organisation is unlikely to be a nation-state target.',
+      },
+      {
+        name: 'Malicious or Coerced Insider',
+        type: 'Adversarial',
+        description: 'A disgruntled, financially motivated, or coerced employee who assists ransomware operators by disabling controls, sharing credentials, or deliberately deploying malware.',
+        capability: 'Moderate',
+        intent: 'Moderate',
+        targeting: 'High',
+        notes: 'Sources: Verizon DBIR 2024 \u2014 insider involvement observed in ~19\u202f% of incidents. Assess whether your offboarding, access revocation, and insider threat detection processes are adequate.',
+      },
+    ],
+    threatEventRefIds: ['ae-05', 'ae-06', 'ae-07', 'ae-09', 'ae-11', 'ae-13', 'ae-18', 'ae-19'],
+    threatEventRelevance: {
+      'ae-05': 'Expected',
+      'ae-06': 'Expected',
+      'ae-07': 'Anticipated',
+      'ae-09': 'Anticipated',
+      'ae-11': 'Expected',
+      'ae-13': 'Expected',
+      'ae-18': 'Anticipated',
+      'ae-19': 'Expected',
+    },
+    threatEventNotes: {
+      'ae-05': 'Phishing is the leading ransomware initial access vector (~41\u202f% of attacks). Review whether this applies to your organisation and confirm your email filtering and user awareness training coverage. (Source: CISA Ransomware Guide 2023)',
+      'ae-06': 'Commodity strains such as LockBit, BlackCat/ALPHV, and Cl0p are delivered via email or malicious websites. Update this note with your specific endpoint protection and mail filtering configuration. (Source: CISA #StopRansomware)',
+      'ae-07': 'Modern "double-extortion" ransomware exfiltrates data before encrypting. Assess your data classification, egress monitoring, and DLP controls. (Source: ENISA Threat Landscape 2024; CISA Ransomware Guide)',
+      'ae-09': "CISA\u2019s Known Exploited Vulnerabilities (KEV) catalogue lists many CVEs actively used in ransomware attacks. Cross-reference with your asset inventory. (Source: cisa.gov/kev)",
+      'ae-11': 'Internet-exposed RDP is a top-3 ransomware initial access vector. Verify which remote access services are internet-facing in your environment. (Source: Coveware Ransomware Report Q4 2023)',
+      'ae-13': 'Credential stuffing and brute force against VPN, RDP, and cloud portals are widely used. Assess your password policy and MFA coverage on internet-facing services. (Source: ENISA Threat Landscape 2023)',
+      'ae-18': 'Data exfiltration before encryption (double extortion) is now standard. Assess whether sensitive data is identifiable and whether egress traffic is monitored. (Source: IBM Cost of a Data Breach 2024)',
+      'ae-19': 'Ransomware routinely deletes Volume Shadow Copies and targets backup systems before deploying encryption. Verify offline/immutable backup availability and recovery test results. (Source: CISA Ransomware Guide)',
+    },
+    vulnerabilities: [
+      {
+        name: 'Unpatched operating systems and applications',
+        description: 'Systems running outdated software with known, exploitable CVEs \u2014 particularly internet-facing services and endpoints. Frequently the primary exploitation path for ransomware initial access.',
+        severity: 'High',
+        notes: 'Cross-reference your asset inventory with the CISA KEV catalogue (cisa.gov/kev). NCSC best-practice timescales (v2.0, Feb\u202f2024): internet-facing services within 5\u202fdays, OS and applications within 7\u202fdays, internal/air-gapped systems within 14\u202fdays — all regardless of severity. Where a vulnerability is being actively exploited in the wild, treat it as an IT incident and patch immediately, checking for signs of compromise before applying the update. Adapt the severity rating to reflect your actual patching posture. (Source: NCSC Vulnerability Management guidance — ncsc.gov.uk/collection/vulnerability-management)',
+      },
+      {
+        name: 'No MFA on remote access services',
+        description: 'Internet-facing VPN, RDP, and cloud authentication portals without multi-factor authentication are highly susceptible to credential stuffing and brute force \u2014 one of the top-three ransomware initial access methods.',
+        severity: 'Very High',
+        notes: 'CISA and NSA jointly recommend MFA as the single most effective preventive control against ransomware initial access via compromised credentials. (Source: CISA/NSA Advisory AA21-321A) Adjust severity based on your current MFA coverage.',
+      },
+      {
+        name: 'Inadequate backup and recovery capability',
+        description: 'Backups on network-attached or cloud-synced drives are routinely destroyed by ransomware. Without offline or immutable backups and tested recovery procedures, full restoration may be impossible.',
+        severity: 'Very High',
+        notes: 'Baseline standard: the 3-2-1-1-0 backup rule (3 copies, 2 different media, 1 offsite, 1 offline/immutable, 0 verified errors on last test). Adapt to reflect your current backup architecture and the date of your last successful recovery test.',
+      },
+      {
+        name: 'Flat or insufficiently segmented network',
+        description: 'Without network segmentation, ransomware can spread laterally from the initial compromise point to all reachable systems, dramatically increasing the blast radius.',
+        severity: 'High',
+        notes: 'Network segmentation is listed as a Tier-1 control in the CISA Ransomware Guide and aligns with NIST CSF control PR.AC-5. Adapt based on your actual network topology and VLAN/firewall configuration.',
+      },
+      {
+        name: 'No endpoint detection and response (EDR)',
+        description: 'Without EDR, pre-encryption ransomware activity \u2014 lateral movement, credential harvesting, shadow copy deletion \u2014 is unlikely to be detected in time to contain the incident.',
+        severity: 'Moderate',
+        notes: 'Organisations with EDR detect ransomware attacks significantly faster on average. Adjust severity to reflect your current endpoint tooling, detection coverage, and alert response SLA. (Source: CrowdStrike Global Threat Report 2024)',
+      },
+    ],
+    predisposingConditionRefIds: ['pc-03', 'pc-07'],
+    predisposingConditionPervasiveness: {
+      'pc-03': 'High',
+      'pc-07': 'Moderate',
+    },
+    predisposingConditionNotes: {
+      'pc-03': 'Networked, multi-user environments are the primary ransomware lateral movement target. Assess how broadly your users and systems are interconnected and whether east\u2013west traffic is monitored.',
+      'pc-07': 'A large or diverse user population increases phishing and social engineering exposure. Review security awareness training coverage and phishing simulation frequency.',
+    },
+  },
+  {
+    id: 'bec',
+    name: 'Business Email Compromise',
+    description: 'Pre-filled guidance for BEC scenarios: account takeover, CEO/CFO impersonation, and fraudulent payment redirection.',
+    icon: '<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>',
+    tags: ['Fraud', 'Social engineering', 'Financial loss'],
+    available: false,
+  },
+  {
+    id: 'invoice-fraud',
+    name: 'Invoice & Payment Fraud',
+    description: 'Covers invoice manipulation, mandate fraud, and supplier account takeover leading to misdirected payments.',
+    icon: '<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>',
+    tags: ['Fraud', 'Financial loss', 'Supplier risk'],
+    available: false,
+  },
+  {
+    id: 'ip-theft',
+    name: 'Intellectual Property Theft',
+    description: 'Covers insider threat, industrial espionage, and exfiltration of trade secrets or R&D data.',
+    icon: '<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>',
+    tags: ['Espionage', 'Insider threat', 'Competitive'],
+    available: false,
+  },
+  {
+    id: 'supply-chain',
+    name: 'Supply Chain Attack',
+    description: 'Covers software supply chain compromise, third-party vendor risk, and hardware or firmware tampering.',
+    icon: '<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>',
+    tags: ['Third-party', 'Software', 'High impact'],
+    available: false,
+  },
+];

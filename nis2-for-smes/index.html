@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>NIS2 for SMEs &#x2014; What You Need to Know | Open Risk Register</title>
+  <meta name="description" content="NIS2 for SMEs: who it applies to, SME thresholds (50+ employees or &#x20AC;10M+ turnover), what you need to do, timelines, and common misconceptions. A practical guide." />
+  <link rel="canonical" href="https://openriskregister.org/nis2-for-smes/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NIS2 for SMEs &#x2014; What You Need to Know | Open Risk Register" />
+  <meta property="og:description" content="NIS2 for SMEs: who it applies to, SME thresholds, what you need to do, timelines, and common misconceptions." />
+  <meta property="og:url" content="https://openriskregister.org/nis2-for-smes/" />
+  <meta property="og:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NIS2 for SMEs &#x2014; What You Need to Know | Open Risk Register" />
+  <meta name="twitter:description" content="NIS2 for SMEs: who it applies to, SME thresholds, what you need to do, timelines, and common misconceptions." />
+  <meta name="twitter:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <link rel="stylesheet" href="/dist/style.css" />
+  <link rel="stylesheet" href="/dist/site.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://openriskregister.org/" },
+          { "@type": "ListItem", "position": 2, "name": "NIS2 for SMEs", "item": "https://openriskregister.org/nis2-for-smes/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does NIS2 apply to micro-enterprises?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Generally no. NIS2 explicitly excludes micro-enterprises (fewer than 10 employees and annual turnover or balance sheet under EUR 2 million) unless they operate in specific critical sectors such as providers of public electronic communications networks or trust service providers." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between essential and important entities under NIS2?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Essential entities are large organisations in highly critical sectors (energy, transport, banking, health, water, digital infrastructure). Important entities include medium-sized organisations in the same sectors plus additional sectors. Both must comply with Article 21 security requirements, but essential entities face ex-ante supervision while important entities face ex-post supervision." }
+          },
+          {
+            "@type": "Question",
+            "name": "When did NIS2 come into force?",
+            "acceptedAnswer": { "@type": "Answer", "text": "NIS2 (Directive EU 2022/2555) entered into force on 16 January 2023. EU member states were required to transpose it into national law by 17 October 2024. Implementation timelines vary by member state." }
+          },
+          {
+            "@type": "Question",
+            "name": "What penalties apply to non-compliant SMEs?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non-compliant essential entities can face fines of up to EUR 10 million or 2% of global annual turnover (whichever is higher). Important entities face fines of up to EUR 7 million or 1.4% of global annual turnover. National authorities can also issue binding instructions and require immediate remediation." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="header-brand" aria-label="Open Risk Register &mdash; Home">
+        <svg class="header-icon" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+        </svg>
+        <div>
+          <span class="header-title">Open Risk Register</span>
+          <span class="header-subtitle">Free NIS2 Risk Assessment Tool</span>
+        </div>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/nis2-risk-assessment-tool/" class="nav-link">NIS2 Risk Tool</a>
+        <a href="/nis2-risk-register-template/" class="nav-link">Templates</a>
+        <a href="/nist-sp-800-30-risk-assessment-template/" class="nav-link">NIST 800-30</a>
+        <a href="/alternatives/" class="nav-link">Alternatives</a>
+        <a href="/source-code/" class="nav-link">Open Source</a>
+        <a href="/app/" class="btn btn-primary btn-sm">Start Assessment &#x2192;</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav aria-label="Breadcrumb" class="breadcrumb-wrap">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </li>
+      <li class="breadcrumb-sep" aria-hidden="true">/</li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name">NIS2 for SMEs</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    </ol>
+  </nav>
+
+  <section class="page-hero" aria-labelledby="page-h1">
+    <div class="page-hero-inner">
+      <h1 id="page-h1">NIS2 for SMEs: A Practical Guide</h1>
+      <p>NIS2 expands Europe&rsquo;s cybersecurity obligations to thousands of small and medium-sized enterprises. This guide explains who is covered, what is required, and where to start.</p>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <!-- What is NIS2 -->
+    <section class="content-section" aria-labelledby="what-nis2-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Overview</span>
+        <h2 class="section-title" id="what-nis2-title">What is NIS2?</h2>
+        <p class="section-body">
+          NIS2 (Directive EU 2022/2555) is the European Union&rsquo;s revised Network and Information Security directive.
+          It replaces the original NIS Directive from 2016 and significantly expands both the scope and the depth of mandatory
+          cybersecurity requirements across the EU.
+        </p>
+        <p class="section-body">
+          The directive establishes a common baseline of cybersecurity risk management obligations for organisations operating
+          in sectors critical to society and the economy. It requires covered entities to implement appropriate technical and
+          organisational security measures, report significant incidents promptly, and take responsibility for their supply
+          chain security.
+        </p>
+        <p class="section-body">
+          NIS2 is not optional guidance &mdash; it is a legal obligation enforceable by national competent authorities,
+          with significant financial penalties for non-compliance. If your SME operates in a covered sector and meets
+          the size thresholds, you are legally required to comply.
+        </p>
+      </div>
+    </section>
+
+    <!-- Essential vs Important entities -->
+    <section class="content-section content-section--alt" aria-labelledby="entities-title">
+      <div class="section-inner">
+        <span class="section-label">Scope</span>
+        <h2 class="section-title" id="entities-title">Essential entities vs important entities</h2>
+        <p class="section-body">
+          NIS2 creates two tiers of covered organisations. Both tiers must meet the same Article 21 security
+          requirements &mdash; the difference lies primarily in how supervision is conducted by national authorities.
+        </p>
+        <div class="feature-row">
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Essential entities</h3>
+            <p>Large organisations in highly critical sectors: energy, transport, banking, financial market infrastructure, health, drinking water, wastewater, digital infrastructure, ICT service management, public administration, and space.</p>
+            <p>Subject to proactive (ex-ante) supervision &mdash; authorities actively audit and inspect.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Important entities</h3>
+            <p>Medium-sized organisations in the same sectors, plus additional sectors: postal and courier services, waste management, manufacture of critical products, food production and distribution, digital providers, and research organisations.</p>
+            <p>Subject to reactive (ex-post) supervision &mdash; authorities investigate when an incident or complaint occurs.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Excluded: micro-enterprises</h3>
+            <p>Organisations with fewer than 10 employees and annual turnover or balance sheet under &euro;2&nbsp;million are generally excluded. Exceptions apply for providers of critical infrastructure regardless of size.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SME thresholds -->
+    <section class="content-section" aria-labelledby="thresholds-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Who is covered?</span>
+        <h2 class="section-title" id="thresholds-title">SME size thresholds under NIS2</h2>
+        <p class="section-body">
+          NIS2 uses the EU&rsquo;s standard enterprise size definitions. Whether your SME is in scope depends on both
+          your organisation&rsquo;s size and the sector in which you operate.
+        </p>
+        <div class="disclaimer-box" role="note" aria-label="NIS2 SME size threshold information">
+          <strong>Size thresholds for NIS2 coverage (in covered sectors):</strong>
+          <ul>
+            <li><strong>Medium enterprises (important entities)</strong> &mdash; 50 or more employees, or annual turnover&nbsp;/&nbsp;balance sheet of &euro;10&nbsp;million or more.</li>
+            <li><strong>Large enterprises (essential entities)</strong> &mdash; 250 or more employees, or annual turnover of &euro;50&nbsp;million or more AND balance sheet of &euro;43&nbsp;million or more.</li>
+            <li><strong>Sector exceptions (any size)</strong> &mdash; Top-level domain registries, DNS providers, public electronic communications networks, trust service providers, and sole providers of a service critical to a member state are covered regardless of size.</li>
+          </ul>
+        </div>
+        <p class="section-body">
+          If your organisation operates in a covered sector and meets the size threshold, you are likely subject to NIS2
+          obligations. Your national competent authority maintains a registry of covered entities &mdash; contact your national
+          cybersecurity agency for country-specific confirmation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Article 21 obligations -->
+    <section class="content-section content-section--alt" aria-labelledby="obligations-title">
+      <div class="section-inner">
+        <span class="section-label">Your obligations</span>
+        <h2 class="section-title" id="obligations-title">The ten Article 21 security measures</h2>
+        <p class="section-body">
+          Article 21 of NIS2 requires covered entities to take &ldquo;appropriate and proportionate&rdquo; technical,
+          operational, and organisational measures to manage cybersecurity risks. The ten mandatory measure areas are:
+        </p>
+        <div class="steps-grid">
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">a</div>
+            <h3>Risk analysis and information system security policies</h3>
+            <p>Document your approach to identifying and managing cybersecurity risks. A structured risk assessment is the mandatory foundation for all other measures.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">b</div>
+            <h3>Incident handling</h3>
+            <p>Establish procedures for detecting, responding to, and recovering from cybersecurity incidents. Significant incidents must be reported to your national authority within 24 hours of detection.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">c</div>
+            <h3>Business continuity and crisis management</h3>
+            <p>Maintain backup systems, disaster recovery plans, and crisis management procedures to ensure service continuity after a disruptive incident.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">d</div>
+            <h3>Supply chain security</h3>
+            <p>Assess and manage the cybersecurity risks introduced by suppliers, software vendors, and third-party service providers. Document dependencies and contractual security requirements.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">e</div>
+            <h3>Security in acquisition and development</h3>
+            <p>Apply security throughout the procurement and development lifecycle of network and information systems, including vulnerability handling and disclosure policies.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">f</div>
+            <h3>Effectiveness assessment</h3>
+            <p>Regularly test and evaluate whether your security measures are working as intended. This includes audits, vulnerability testing, and continuous monitoring.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">g</div>
+            <h3>Cyber hygiene and training</h3>
+            <p>Implement basic cybersecurity practices across your organisation and provide regular security awareness training to staff at all levels, including management.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">h</div>
+            <h3>Cryptography and encryption</h3>
+            <p>Apply encryption and cryptographic controls where appropriate to protect data in transit and at rest, and maintain policies governing their use.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">i</div>
+            <h3>Human resources security, access control, and asset management</h3>
+            <p>Control access to systems on a need-to-know basis, manage HR security procedures for onboarding and offboarding, and maintain an inventory of information assets.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">j</div>
+            <h3>Multi-factor authentication and secure communications</h3>
+            <p>Enforce MFA for privileged and remote access. Use encrypted communications channels for sensitive internal and external communications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="content-section" aria-labelledby="timeline-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Timeline</span>
+        <h2 class="section-title" id="timeline-title">NIS2 implementation timeline</h2>
+        <p class="section-body">
+          NIS2 has already passed its key EU-level milestones. National implementation is underway across member states.
+        </p>
+        <div class="disclaimer-box" role="note" aria-label="NIS2 key dates">
+          <ul>
+            <li><strong>16 January 2023</strong> &mdash; NIS2 Directive entered into force.</li>
+            <li><strong>17 October 2024</strong> &mdash; Deadline for member states to transpose NIS2 into national law.</li>
+            <li><strong>17 January 2025</strong> &mdash; ENISA published EU-level guidelines; member states required to have registered covered entities.</li>
+            <li><strong>Now</strong> &mdash; Supervision and enforcement is active in most member states. If you are in scope, you should already be working on compliance.</li>
+          </ul>
+        </div>
+        <p class="section-body">
+          Transposition timelines vary between member states. Contact your national cybersecurity agency
+          (ENISA maintains a <a href="https://www.enisa.europa.eu/topics/cybersecurity-policy/nis-directive-new" rel="noopener noreferrer" target="_blank">list of national authorities</a>)
+          for country-specific guidance on current obligations and registration requirements.
+        </p>
+      </div>
+    </section>
+
+    <!-- Common misconceptions -->
+    <section class="content-section content-section--alt" aria-labelledby="misconceptions-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Common misconceptions</span>
+        <h2 class="section-title" id="misconceptions-title">What NIS2 does and does not require</h2>
+        <div class="feature-row">
+          <div class="feature-item">
+            <h3>&ldquo;We are too small to be covered&rdquo;</h3>
+            <p>Many SMEs in covered sectors with 50&nbsp;+ employees or &euro;10M&nbsp;+ turnover are in scope. Size alone does not exclude you &mdash; the sector you operate in is equally decisive.</p>
+          </div>
+          <div class="feature-item">
+            <h3>&ldquo;ISO 27001 certification satisfies NIS2&rdquo;</h3>
+            <p>ISO 27001 is helpful evidence of a security management system, but it does not automatically satisfy NIS2. NIS2 has specific requirements around incident reporting timelines, supply chain assessment, and management personal liability that go beyond ISO 27001 scope.</p>
+          </div>
+          <div class="feature-item">
+            <h3>&ldquo;A risk assessment alone is enough&rdquo;</h3>
+            <p>A risk assessment is the mandatory starting point, but NIS2 also requires incident handling procedures, business continuity plans, supply chain assessments, and regular effectiveness testing. The risk assessment informs and justifies all other measures.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section" aria-labelledby="faq-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Frequently asked questions</span>
+        <h2 class="section-title" id="faq-title">NIS2 SME questions</h2>
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">
+              Does NIS2 apply to micro-enterprises?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a-1" role="region" aria-labelledby="faq-q-1">
+              <p>Generally no. NIS2 explicitly excludes micro-enterprises (fewer than 10 employees and annual turnover or balance sheet under &euro;2&nbsp;million) unless they operate in specific critical sectors such as providers of public electronic communications networks or trust service providers.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">
+              What is the difference between essential and important entities?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a-2" role="region" aria-labelledby="faq-q-2">
+              <p>Essential entities are large organisations in highly critical sectors. Important entities include medium-sized organisations in the same sectors plus additional sectors. Both tiers must comply with the same Article 21 security requirements. The key difference is supervision: essential entities face proactive (ex-ante) supervision; important entities face reactive (ex-post) supervision triggered by incidents or complaints.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">
+              When did NIS2 come into force?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a-3" role="region" aria-labelledby="faq-q-3">
+              <p>NIS2 (Directive EU 2022/2555) entered into force on 16 January 2023. EU member states were required to transpose it into national law by 17 October 2024. Implementation timelines and enforcement activity vary by member state.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">
+              What penalties apply to non-compliant SMEs?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a-4" role="region" aria-labelledby="faq-q-4">
+              <p>Non-compliant essential entities can face fines of up to &euro;10&nbsp;million or 2% of global annual turnover (whichever is higher). Important entities face fines of up to &euro;7&nbsp;million or 1.4% of global annual turnover. National authorities can also issue binding instructions, require immediate remediation, and in serious cases temporarily ban management from exercising leadership roles.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-section-inner">
+        <h2 id="cta-title">Start your NIS2 risk assessment today</h2>
+        <p>Free, browser-based, and aligned with NIS2 Article 21. No sign-up required.</p>
+        <a href="/app/" class="btn-cta">Open the Tool &#x2192;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer site-footer--rich" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <p class="footer-brand-name">Open Risk Register</p>
+        <p>Free, open-source NIS2 risk assessment tool based on NIST SP 800-30 R1. All data stays in your browser &mdash; no account, no server, no cost.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tool</h4>
+        <ul>
+          <li><a href="/app/">Start Assessment</a></li>
+          <li><a href="/nis2-risk-assessment-tool/">NIS2 Risk Assessment</a></li>
+          <li><a href="/nis2-risk-register-template/">Risk Register Template</a></li>
+          <li><a href="/examples/">Examples</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/nis2-for-smes/">NIS2 for SMEs</a></li>
+          <li><a href="/nis2-article-21-checklist/">Article 21 Checklist</a></li>
+          <li><a href="/nist-sp-800-30-risk-assessment-template/">NIST SP 800-30</a></li>
+          <li><a href="/local-first-security/">Local-First Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="/source-code/">Source Code</a></li>
+          <li><a href="/open-source-nis2-tool/">Open Source</a></li>
+          <li><a href="/alternatives/">Alternatives</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Open Risk Register. Developed by <a href="https://oak3.org" rel="noopener noreferrer" target="_blank">Oak3 Advisory B.V.</a></p>
+      <p>No data is transmitted to any server. All processing happens in your browser.</p>
+    </div>
+  </footer>
+
+  <script src="/dist/site.js" defer></script>
+</body>
+</html>

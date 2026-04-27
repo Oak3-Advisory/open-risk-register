@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Local-First Security: Why Your Risk Data Should Stay in Your Browser | Open Risk Register</title>
+  <meta name="description" content="Why local-first architecture matters for cybersecurity risk assessment tools. Learn how localStorage keeps sensitive risk data private, and why cloud-based risk tools introduce unnecessary exposure." />
+  <link rel="canonical" href="https://openriskregister.org/local-first-security/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Local-First Security: Why Your Risk Data Should Stay in Your Browser | Open Risk Register" />
+  <meta property="og:description" content="Why local-first architecture matters for cybersecurity risk assessment tools. How localStorage keeps sensitive risk data private and the risks of cloud-based alternatives." />
+  <meta property="og:url" content="https://openriskregister.org/local-first-security/" />
+  <meta property="og:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Local-First Security: Why Your Risk Data Should Stay in Your Browser | Open Risk Register" />
+  <meta name="twitter:description" content="Why local-first architecture matters for cybersecurity risk assessment tools. How localStorage keeps sensitive risk data private." />
+  <meta name="twitter:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <link rel="stylesheet" href="/dist/style.css" />
+  <link rel="stylesheet" href="/dist/site.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://openriskregister.org/" },
+      { "@type": "ListItem", "position": 2, "name": "Local-First Security", "item": "https://openriskregister.org/local-first-security/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="header-brand" aria-label="Open Risk Register &mdash; Home">
+        <svg class="header-icon" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+        </svg>
+        <div>
+          <span class="header-title">Open Risk Register</span>
+          <span class="header-subtitle">Free NIS2 Risk Assessment Tool</span>
+        </div>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/nis2-risk-assessment-tool/" class="nav-link">NIS2 Risk Tool</a>
+        <a href="/nis2-risk-register-template/" class="nav-link">Templates</a>
+        <a href="/nist-sp-800-30-risk-assessment-template/" class="nav-link">NIST 800-30</a>
+        <a href="/alternatives/" class="nav-link">Alternatives</a>
+        <a href="/source-code/" class="nav-link">Open Source</a>
+        <a href="/app/" class="btn btn-primary btn-sm">Start Assessment &#x2192;</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav aria-label="Breadcrumb" class="breadcrumb-wrap">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </li>
+      <li class="breadcrumb-sep" aria-hidden="true">/</li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name">Local-First Security</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    </ol>
+  </nav>
+
+  <section class="page-hero" aria-labelledby="page-h1">
+    <div class="page-hero-inner">
+      <h1 id="page-h1">Local-First Security for Sensitive Risk Data</h1>
+      <p>A risk assessment documents your organisation&rsquo;s most sensitive vulnerabilities. That data deserves the strongest possible protection &mdash; starting with never leaving your device.</p>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <!-- What local-first means -->
+    <section class="content-section" aria-labelledby="what-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Architecture</span>
+        <h2 class="section-title" id="what-title">What &ldquo;local-first&rdquo; means</h2>
+        <p class="section-body">
+          A local-first application stores and processes all data directly on the user&rsquo;s device rather than
+          sending it to a remote server. The application runs in the browser, reads from and writes to local
+          storage, and performs all computation client-side. There is no back-end service involved in the
+          core workflow.
+        </p>
+        <p class="section-body">
+          This is architecturally different from &ldquo;offline-capable&rdquo; or &ldquo;offline-first&rdquo; cloud applications that
+          cache data locally and sync when connectivity returns. In a true local-first application, there is
+          no server to sync with at all &mdash; the user&rsquo;s device is the single source of truth.
+        </p>
+        <p class="section-body">
+          Open Risk Register is local-first by design. Every assessment you create is stored exclusively in
+          your browser&rsquo;s localStorage. No account is created. No API calls are made. No data is transmitted
+          over the internet. The tool works identically whether you are online or offline.
+        </p>
+      </div>
+    </section>
+
+    <!-- Why risk data is sensitive -->
+    <section class="content-section content-section--alt" aria-labelledby="sensitive-title">
+      <div class="section-inner">
+        <span class="section-label">Data sensitivity</span>
+        <h2 class="section-title" id="sensitive-title">Why risk assessment data is uniquely sensitive</h2>
+        <p class="section-body">
+          Not all business data carries the same risk if exposed. A cybersecurity risk assessment is among
+          the most sensitive documents an organisation produces &mdash; it is essentially a detailed map of your
+          weaknesses, written for internal use.
+        </p>
+        <div class="feature-row">
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Maps your vulnerabilities</h3>
+            <p>A risk register explicitly identifies unpatched systems, weak access controls, inadequate backups, and other exploitable conditions. In the wrong hands, it is an attacker&rsquo;s planning document.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Identifies key personnel and assets</h3>
+            <p>Risk assessments often reference specific systems, network segments, and critical personnel by name. This information can support targeted social engineering or physical security attacks.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Has regulatory and legal implications</h3>
+            <p>Under NIS2 and GDPR, risk assessment documentation may be subject to regulatory requests, legal discovery, or audit. Exposure of this data to a third-party vendor creates additional legal risk.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Risks of cloud-based risk tools -->
+    <section class="content-section" aria-labelledby="cloud-risks-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Cloud tool risks</span>
+        <h2 class="section-title" id="cloud-risks-title">The risks of cloud-based risk assessment tools</h2>
+        <p class="section-body">
+          Many commercial risk management platforms store your assessment data on their servers. This convenience
+          introduces several categories of risk that a local-first tool eliminates entirely.
+        </p>
+        <div class="disclaimer-box" role="note" aria-label="Cloud risk tool risk categories">
+          <strong>Risks introduced by uploading risk data to a cloud tool:</strong>
+          <ul>
+            <li><strong>Vendor data breach</strong> &mdash; If the risk tool vendor is compromised, your vulnerability mapping is exposed to the attackers. You have no control over the vendor&rsquo;s security posture.</li>
+            <li><strong>Legal and government access</strong> &mdash; Depending on the vendor&rsquo;s jurisdiction, government agencies may compel disclosure of your data without your knowledge or consent.</li>
+            <li><strong>Vendor lock-in</strong> &mdash; If the vendor ceases operations, changes pricing, or is acquired, you may lose access to your historical assessment data.</li>
+            <li><strong>Data residency uncertainty</strong> &mdash; Many cloud tools store data on servers outside your jurisdiction, creating compliance issues under GDPR and NIS2.</li>
+            <li><strong>Insider threat at vendor</strong> &mdash; Vendor employees with database access could read your risk data. Most vendor security policies do not give customers meaningful controls over this.</li>
+            <li><strong>Account compromise</strong> &mdash; Credential theft, session hijacking, or phishing attacks against your account with the vendor can expose your entire risk history.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- How localStorage works -->
+    <section class="content-section content-section--alt" aria-labelledby="localstorage-title">
+      <div class="section-inner">
+        <span class="section-label">How it works</span>
+        <h2 class="section-title" id="localstorage-title">How browser localStorage protects your data</h2>
+        <p class="section-body">
+          Browser localStorage is a key-value storage mechanism built into every modern browser. Data
+          stored in localStorage is sandboxed to the specific origin (domain) that created it and is
+          never transmitted to any server.
+        </p>
+        <div class="feature-row">
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Origin-sandboxed</h3>
+            <p>Data stored by <code>openriskregister.org</code> can only be read by JavaScript running on that same origin. Other websites, browser extensions (unless granted host permissions), and the browser itself cannot access it.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Never transmitted</h3>
+            <p>localStorage data is not included in HTTP requests. Unlike cookies, it is never automatically sent to the server. Open Risk Register makes no network requests containing your assessment data.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2"/>
+                <polyline points="7 10 12 15 17 10" stroke="currentColor" stroke-width="2"/>
+                <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Persistent until you clear it</h3>
+            <p>Unlike sessionStorage, localStorage persists across browser sessions. Your assessments survive browser restarts and remain on your device until you explicitly clear site data or export and delete.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Export as backup strategy -->
+    <section class="content-section" aria-labelledby="export-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Backup strategy</span>
+        <h2 class="section-title" id="export-title">Export as your backup strategy</h2>
+        <p class="section-body">
+          The main limitation of localStorage is that it is tied to a specific browser on a specific device.
+          Clearing browser data, reinstalling the browser, or switching devices will result in data loss.
+          The mitigation is simple: export your assessments regularly.
+        </p>
+        <div class="disclaimer-box" role="note" aria-label="Export and backup guidance">
+          <strong>Recommended backup practice:</strong>
+          <ul>
+            <li><strong>Export to JSON after each session</strong> &mdash; Use the export function in the Results step to save a complete JSON copy of your assessment. This file can be re-imported into any browser running the tool.</li>
+            <li><strong>Store exports securely</strong> &mdash; The JSON export contains your full risk data. Store it in an encrypted location (e.g., an encrypted folder or a password manager&rsquo;s secure notes feature).</li>
+            <li><strong>Do not store exports in cloud storage without encryption</strong> &mdash; Uploading an unencrypted risk assessment JSON to a cloud drive reintroduces the same exposure risks that local-first is designed to eliminate.</li>
+            <li><strong>Print to PDF for governance records</strong> &mdash; The print-to-PDF function produces a formatted report suitable for management sign-off, board reporting, or regulatory evidence. PDFs can be archived in your document management system.</li>
+          </ul>
+        </div>
+        <p class="section-body">
+          Local-first does not mean fragile. With a disciplined export practice, your risk assessment data
+          is both maximally private and fully portable.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-section-inner">
+        <h2 id="cta-title">Keep your risk data where it belongs</h2>
+        <p>Run your entire NIS2 risk assessment in the browser. Nothing leaves your device.</p>
+        <a href="/app/" class="btn-cta">Open the Tool &#x2192;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer site-footer--rich" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <p class="footer-brand-name">Open Risk Register</p>
+        <p>Free, open-source NIS2 risk assessment tool based on NIST SP 800-30 R1. All data stays in your browser &mdash; no account, no server, no cost.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tool</h4>
+        <ul>
+          <li><a href="/app/">Start Assessment</a></li>
+          <li><a href="/nis2-risk-assessment-tool/">NIS2 Risk Assessment</a></li>
+          <li><a href="/nis2-risk-register-template/">Risk Register Template</a></li>
+          <li><a href="/examples/">Examples</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/nis2-for-smes/">NIS2 for SMEs</a></li>
+          <li><a href="/nis2-article-21-checklist/">Article 21 Checklist</a></li>
+          <li><a href="/nist-sp-800-30-risk-assessment-template/">NIST SP 800-30</a></li>
+          <li><a href="/local-first-security/">Local-First Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="/source-code/">Source Code</a></li>
+          <li><a href="/open-source-nis2-tool/">Open Source</a></li>
+          <li><a href="/alternatives/">Alternatives</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Open Risk Register. Developed by <a href="https://oak3.org" rel="noopener noreferrer" target="_blank">Oak3 Advisory B.V.</a></p>
+      <p>No data is transmitted to any server. All processing happens in your browser.</p>
+    </div>
+  </footer>
+
+  <script src="/dist/site.js" defer></script>
+</body>
+</html>

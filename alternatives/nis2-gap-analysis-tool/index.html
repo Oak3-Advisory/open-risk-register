@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Free NIS2 Gap Analysis Tool | Open Risk Register</title>
+  <meta name="description" content="What is a NIS2 gap analysis, how does it differ from a risk assessment, and how can you do both for free? A practical guide with a browser-based tool." />
+  <link rel="canonical" href="https://openriskregister.org/alternatives/nis2-gap-analysis-tool/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Free NIS2 Gap Analysis Tool | Open Risk Register" />
+  <meta property="og:description" content="What is a NIS2 gap analysis, how does it differ from a risk assessment, and how to do both for free in your browser." />
+  <meta property="og:url" content="https://openriskregister.org/alternatives/nis2-gap-analysis-tool/" />
+  <meta property="og:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free NIS2 Gap Analysis Tool | Open Risk Register" />
+  <meta name="twitter:description" content="What is a NIS2 gap analysis, how it differs from a risk assessment, and how to do both for free." />
+  <meta name="twitter:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <link rel="stylesheet" href="/dist/style.css" />
+  <link rel="stylesheet" href="/dist/site.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://openriskregister.org/" },
+          { "@type": "ListItem", "position": 2, "name": "Alternatives", "item": "https://openriskregister.org/alternatives/" },
+          { "@type": "ListItem", "position": 3, "name": "NIS2 Gap Analysis Tool", "item": "https://openriskregister.org/alternatives/nis2-gap-analysis-tool/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a NIS2 gap analysis?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A NIS2 gap analysis compares your current cybersecurity measures against all 10 mandatory requirements in NIS2 Article 21(2). It identifies which measures are in place, which are missing, and which are only partially implemented."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between a NIS2 gap analysis and a risk assessment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A gap analysis checks compliance against a fixed list of requirements. A risk assessment goes further: it identifies specific threats, evaluates their likelihood and impact, and prioritises risks so you know where to focus first. NIS2 Article 21 requires both: the risk assessment informs which measures to implement, and the gap analysis confirms they are in place."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use Open Risk Register for a NIS2 gap analysis?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Open Risk Register includes all 10 NIS2 Article 21 security measures as part of its assessment workflow. You can document existing controls against each requirement, identify gaps, and use the risk register to prioritise remediation."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="header-brand" aria-label="Open Risk Register — Home">
+        <svg class="header-icon" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+        </svg>
+        <div>
+          <span class="header-title">Open Risk Register</span>
+          <span class="header-subtitle">Free NIS2 Risk Assessment Tool</span>
+        </div>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/nis2-risk-assessment-tool/" class="nav-link">NIS2 Risk Tool</a>
+        <a href="/nis2-risk-register-template/" class="nav-link">Templates</a>
+        <a href="/nist-sp-800-30-risk-assessment-template/" class="nav-link">NIST 800-30</a>
+        <a href="/alternatives/" class="nav-link active">Alternatives</a>
+        <a href="/source-code/" class="nav-link">Open Source</a>
+        <a href="/app/" class="btn btn-primary btn-sm">Start Assessment &#x2192;</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
+    <ol class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li class="breadcrumb-sep" aria-hidden="true">&#x203A;</li>
+      <li><a href="/alternatives/">Alternatives</a></li>
+      <li class="breadcrumb-sep" aria-hidden="true">&#x203A;</li>
+      <li><span class="breadcrumb-current">NIS2 Gap Analysis Tool</span></li>
+    </ol>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <h1>Free NIS2 Gap Analysis Tool</h1>
+      <p>Understand what a NIS2 gap analysis is, how it differs from a risk assessment, and how to complete both using a free browser-based tool — no installation, no account.</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ── Gap analysis explained ─────────────────────────── -->
+    <section class="content-section" aria-labelledby="what-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Concepts</span>
+        <h2 class="section-title" id="what-title">What is a NIS2 gap analysis?</h2>
+        <p class="section-body">A NIS2 gap analysis is a structured comparison of your current cybersecurity measures against the ten mandatory requirements set out in NIS2 Article 21(2). For each requirement, you assess whether a control is:</p>
+        <p class="section-body mt-4"><strong>Fully implemented</strong> — the control exists, is documented, and is operating effectively.<br>
+        <strong>Partially implemented</strong> — some measures are in place but incomplete or undocumented.<br>
+        <strong>Not implemented</strong> — no relevant control exists.</p>
+        <p class="section-body mt-4">The result is a gap report showing where you comply and where you have work to do. It is the starting point for a NIS2 compliance programme.</p>
+      </div>
+    </section>
+
+    <!-- ── Gap analysis vs risk assessment ───────────────── -->
+    <section class="content-section content-section--alt" aria-labelledby="diff-title">
+      <div class="section-inner">
+        <span class="section-label">Key distinction</span>
+        <h2 class="section-title" id="diff-title">Gap analysis vs risk assessment — what is the difference?</h2>
+        <p class="section-body">These two activities are related but distinct. NIS2 Article 21 requires both.</p>
+
+        <div class="comparison-table-wrap">
+          <table class="comparison-table" aria-label="Gap analysis vs risk assessment comparison">
+            <thead>
+              <tr>
+                <th scope="col">Dimension</th>
+                <th scope="col">Gap Analysis</th>
+                <th scope="col">Risk Assessment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Question it answers</td>
+                <td>Which required controls do we have or lack?</td>
+                <td>What could go wrong, how likely is it, and how severe would it be?</td>
+              </tr>
+              <tr>
+                <td>Reference point</td>
+                <td>Fixed list of NIS2 Article 21(2) requirements</td>
+                <td>Your specific assets, threat landscape, and operating environment</td>
+              </tr>
+              <tr>
+                <td>Output</td>
+                <td>Compliance status per control (yes / partial / no)</td>
+                <td>Prioritised risk register with likelihood, impact, and treatment decisions</td>
+              </tr>
+              <tr>
+                <td>NIS2 obligation</td>
+                <td class="cmp-yes">Required — Article 21(1)</td>
+                <td class="cmp-yes">Required — Article 21(2)(a)</td>
+              </tr>
+              <tr>
+                <td>Frequency</td>
+                <td>At least annually, or after significant change</td>
+                <td>At least annually, or after significant change</td>
+              </tr>
+              <tr>
+                <td>Who does it inform?</td>
+                <td>Management reporting, board oversight</td>
+                <td>Security teams, operations, procurement</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How Open Risk Register covers both ────────────── -->
+    <section class="content-section" aria-labelledby="both-title">
+      <div class="section-inner">
+        <span class="section-label">How the tool helps</span>
+        <h2 class="section-title" id="both-title">How Open Risk Register supports both activities</h2>
+        <div class="steps-grid">
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">1</div>
+            <h3>Scope your assessment</h3>
+            <p>Define the system, process, or organisation you are assessing. This gives your risk and gap analysis a clear boundary — essential for NIS2 documentation.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">2</div>
+            <h3>Identify threats and vulnerabilities</h3>
+            <p>Work through the NIST SP 800-30 catalogue of threat sources and threat events. Each threat maps to one or more NIS2 Article 21 security measures.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">3</div>
+            <h3>Document existing controls</h3>
+            <p>For each identified threat, record whether a control already exists. This data doubles as your gap analysis input — tracking which Article 21 measures are covered.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">4</div>
+            <h3>Score likelihood and impact</h3>
+            <p>Score each risk on a structured 5-point scale. Residual risk after existing controls gives you a prioritised list of gaps to address.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">5</div>
+            <h3>Produce your risk register</h3>
+            <p>The output is a structured risk register showing each risk, its score, and the relevant Article 21 measure — ready for management reporting and audit.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">6</div>
+            <h3>Export and document</h3>
+            <p>Export as JSON for your records or print a formatted PDF report. Your NIS2 obligation requires documented evidence of the assessment process.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ────────────────────────────────────────────── -->
+    <section class="content-section content-section--alt" aria-labelledby="faq-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title" id="faq-title">Frequently asked questions</h2>
+        <div class="faq-list" role="list">
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" type="button">
+              What is a NIS2 gap analysis?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>A NIS2 gap analysis compares your current cybersecurity measures against all 10 mandatory requirements in NIS2 Article 21(2). It identifies which measures are in place, which are missing, and which are only partially implemented.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" type="button">
+              What is the difference between a NIS2 gap analysis and a risk assessment?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>A gap analysis checks compliance against a fixed list of requirements. A risk assessment goes further: it identifies specific threats, evaluates their likelihood and impact, and prioritises risks so you know where to focus first. NIS2 Article 21 requires both: the risk assessment informs which measures to implement, and the gap analysis confirms they are in place.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" type="button">
+              Can I use Open Risk Register for a NIS2 gap analysis?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Open Risk Register includes all 10 NIS2 Article 21 security measures as part of its assessment workflow. You can document existing controls against each requirement, identify gaps, and use the risk register to prioritise remediation.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" type="button">
+              Do I need a separate gap analysis tool?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Not necessarily. Open Risk Register is primarily a risk assessment tool, but its structured workflow captures the information needed for a gap analysis as a by-product. For a standalone compliance checklist view, see the <a href="/nis2-article-21-checklist/">NIS2 Article 21 Checklist</a> page.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ────────────────────────────────────────────── -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-section-inner">
+        <h2 id="cta-title">Start your NIS2 gap analysis and risk assessment today</h2>
+        <p>Free, browser-based, no account required. Your data stays on your device.</p>
+        <a href="/app/" class="btn-cta">Start Assessment &#x2192;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer site-footer--rich" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <p class="footer-brand-name">Open Risk Register</p>
+        <p>Free, open-source NIS2 risk assessment tool based on NIST SP 800-30 R1. All data stays in your browser — no account, no server, no cost.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tool</h4>
+        <ul>
+          <li><a href="/app/">Start Assessment</a></li>
+          <li><a href="/nis2-risk-assessment-tool/">NIS2 Risk Assessment</a></li>
+          <li><a href="/nis2-risk-register-template/">Risk Register Template</a></li>
+          <li><a href="/examples/">Examples</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/nis2-for-smes/">NIS2 for SMEs</a></li>
+          <li><a href="/nis2-article-21-checklist/">Article 21 Checklist</a></li>
+          <li><a href="/nist-sp-800-30-risk-assessment-template/">NIST SP 800-30</a></li>
+          <li><a href="/local-first-security/">Local-First Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="/source-code/">Source Code</a></li>
+          <li><a href="/open-source-nis2-tool/">Open Source</a></li>
+          <li><a href="/alternatives/">Alternatives</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Open Risk Register. Developed by <a href="https://oak3.org" rel="noopener noreferrer" target="_blank">Oak3 Advisory B.V.</a></p>
+      <p>No data is transmitted to any server. All processing happens in your browser.</p>
+    </div>
+  </footer>
+
+  <script src="/dist/site.js" defer></script>
+</body>
+</html>

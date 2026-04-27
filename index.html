@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Free NIS2 Risk Assessment Tool | Open Risk Register</title>
+  <meta name="description" content="Create a NIS2-compliant cybersecurity risk register using a NIST SP 800-30 workflow. Free, open source, browser-based. No account or server required — your data never leaves your device." />
+  <link rel="canonical" href="https://openriskregister.org/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Free NIS2 Risk Assessment Tool | Open Risk Register" />
+  <meta property="og:description" content="Create a NIS2-compliant cybersecurity risk register using a NIST SP 800-30 workflow. Free, open source, browser-based." />
+  <meta property="og:url" content="https://openriskregister.org/" />
+  <meta property="og:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free NIS2 Risk Assessment Tool | Open Risk Register" />
+  <meta name="twitter:description" content="Create a NIS2-compliant cybersecurity risk register using a NIST SP 800-30 workflow. Free, open source, browser-based." />
+  <meta name="twitter:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <link rel="stylesheet" href="/dist/style.css" />
+  <link rel="stylesheet" href="/dist/site.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://openriskregister.org/app/",
+        "name": "Open Risk Register",
+        "url": "https://openriskregister.org/app/",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Any modern web browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Free, browser-based NIS2 risk assessment tool based on NIST SP 800-30 R1. No account required. All data stays in your browser.",
+        "featureList": ["NIS2 Article 21 alignment","NIST SP 800-30 workflow","Local-first storage","PDF export","JSON export","Open source"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://openriskregister.org/#website",
+        "url": "https://openriskregister.org/",
+        "name": "Open Risk Register",
+        "description": "Free NIS2 risk assessment tool for SMEs based on NIST SP 800-30"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Open Risk Register really free?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open Risk Register is completely free to use. There is no account, no subscription, and no hidden cost. The tool runs entirely in your browser." }
+          },
+          {
+            "@type": "Question",
+            "name": "How does this tool help with NIS2 compliance?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The tool guides you through a structured risk assessment aligned with NIS2 Article 21 security measures, covering risk identification, likelihood scoring, impact scoring, and producing a risk register for your cybersecurity governance obligations." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my data secure?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Your data never leaves your browser. All processing happens client-side using browser localStorage. Nothing is sent to any server. The source code is open source so you can verify this yourself." }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to my data if I close the browser?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Your assessments persist in browser localStorage when you close and reopen the browser. Clearing browser data will delete assessments permanently. Use the JSON export feature to create permanent backups." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I export the results?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can export your risk register as a JSON file and print a formatted PDF report directly from the Results step." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="header-brand" aria-label="Open Risk Register — Home">
+        <svg class="header-icon" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+        </svg>
+        <div>
+          <span class="header-title">Open Risk Register</span>
+          <span class="header-subtitle">Free NIS2 Risk Assessment Tool</span>
+        </div>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/nis2-risk-assessment-tool/" class="nav-link">NIS2 Risk Tool</a>
+        <a href="/nis2-risk-register-template/" class="nav-link">Templates</a>
+        <a href="/nist-sp-800-30-risk-assessment-template/" class="nav-link">NIST 800-30</a>
+        <a href="/alternatives/" class="nav-link">Alternatives</a>
+        <a href="/source-code/" class="nav-link">Open Source</a>
+        <a href="/app/" class="btn btn-primary btn-sm">Start Assessment &#x2192;</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Hero ────────────────────────────────────────────────── -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Free &middot; Open Source &middot; Browser-based</span>
+      <h1 id="hero-h1">
+        Free <em>NIS2 Risk Assessment</em><br>Tool for SMEs
+      </h1>
+      <p class="hero-tagline">
+        Build a structured cybersecurity risk register based on NIST&nbsp;SP&nbsp;800-30
+        &mdash; directly in your browser. No account. No data upload. No cost.
+      </p>
+      <div class="hero-actions">
+        <a href="/app/" class="btn btn-primary btn-hero">
+          Start Your Risk Assessment &#x2192;
+        </a>
+        <a href="#how-it-works" class="btn-outline-white">
+          See how it works &#x2193;
+        </a>
+      </div>
+      <div class="trust-strip" role="list" aria-label="Key features">
+        <span class="trust-badge" role="listitem">Free forever</span>
+        <span class="trust-badge" role="listitem">Open source</span>
+        <span class="trust-badge" role="listitem">No account needed</span>
+        <span class="trust-badge" role="listitem">Data stays in your browser</span>
+        <span class="trust-badge" role="listitem">NIS2 Article 21 aligned</span>
+        <span class="trust-badge" role="listitem">Based on NIST SP 800-30</span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <!-- ── How it works ──────────────────────────────────────── -->
+    <section class="content-section" id="how-it-works" aria-labelledby="hiw-title">
+      <div class="section-inner">
+        <span class="section-label">How it works</span>
+        <h2 class="section-title" id="hiw-title">Nine steps to a complete risk register</h2>
+        <p class="section-body">
+          Open Risk Register walks you through the NIST&nbsp;SP&nbsp;800-30 risk assessment process.
+          Each step builds on the last &mdash; from defining your scope to a prioritised risk register
+          you can act on and report to management.
+        </p>
+        <div class="steps-grid">
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">1</div>
+            <h3>Dashboard</h3>
+            <p>Manage multiple independent assessments. Each is isolated in your browser and named for a specific system or project.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">2</div>
+            <h3>Assessment Setup</h3>
+            <p>Define the system or process you are assessing: name, boundaries, purpose, and scope. This context shapes the entire assessment.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">3</div>
+            <h3>Risk Model</h3>
+            <p>Choose your assessment tier (system-level or organisation-level) and configure how you will categorise threats and score risk.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">4</div>
+            <h3>Threat Sources</h3>
+            <p>Identify the actors who might target your system &mdash; from adversarial groups and insiders to environmental and structural threats.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">5</div>
+            <h3>Threat Events</h3>
+            <p>Map specific attack scenarios that threat sources could carry out, drawing from the full NIST SP 800-30 threat event catalogue.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">6</div>
+            <h3>Vulnerabilities</h3>
+            <p>Identify predisposing conditions and weaknesses in your system that increase the likelihood of a threat event succeeding.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">7</div>
+            <h3>Likelihood</h3>
+            <p>Score the probability of each threat event occurring, combining threat source capability, intent, and your system's vulnerability exposure.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">8</div>
+            <h3>Impact</h3>
+            <p>Assess the potential harm if each threat event occurs &mdash; covering operational, financial, and reputational consequences.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">9</div>
+            <h3>Results</h3>
+            <p>Review your complete risk register, prioritised by risk level. Export as JSON or print a PDF report for governance documentation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Privacy by design ─────────────────────────────────── -->
+    <section class="content-section content-section--alt" aria-labelledby="privacy-title">
+      <div class="section-inner">
+        <span class="section-label">Privacy &amp; security</span>
+        <h2 class="section-title" id="privacy-title">Your data never leaves your browser</h2>
+        <p class="section-body">
+          Open Risk Register is a local-first application. Every assessment you create is stored
+          in your browser's localStorage &mdash; never on a server, never transmitted over the internet.
+        </p>
+        <div class="feature-row">
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>No account required</h3>
+            <p>No registration, no login, no email address. Open the tool and start your assessment immediately with zero setup.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>No server storage</h3>
+            <p>Your risk data contains sensitive information about your organisation's vulnerabilities. It stays in your browser &mdash; zero network requests are made.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Open source &amp; auditable</h3>
+            <p>The entire codebase is open source. You can inspect, audit, and self-host the tool to verify exactly what happens with your data.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── NIS2 mapping ──────────────────────────────────────── -->
+    <section class="content-section content-section--navy" aria-labelledby="nis2-title">
+      <div class="section-inner">
+        <span class="section-label">Regulatory alignment</span>
+        <h2 class="section-title" id="nis2-title">Mapped to NIS2 Article 21 security measures</h2>
+        <p class="section-body">
+          NIS2 Directive Article 21 requires essential and important entities to implement appropriate and
+          proportionate technical and organisational measures to manage cybersecurity risks. A documented
+          risk assessment is the mandatory foundation. Open Risk Register covers these Article 21 measures:
+        </p>
+        <ul class="nis2-list" aria-label="NIS2 Article 21 measures covered by this tool">
+          <li>Risk analysis and information system security policies (Art. 21(2)(a))</li>
+          <li>Incident handling &mdash; detection, response, and recovery</li>
+          <li>Business continuity and disaster recovery planning</li>
+          <li>Supply chain security &mdash; mapping dependencies and third-party risks</li>
+          <li>Security in network and information systems acquisition</li>
+          <li>Policies to assess cybersecurity measure effectiveness</li>
+          <li>Use of cryptography and encryption where applicable</li>
+          <li>Human resources security and access control policies</li>
+          <li>Multi-factor authentication and secure communications</li>
+          <li>Asset management and classification</li>
+          <li>Physical and environmental security of information systems</li>
+          <li>Vulnerability handling and coordinated disclosure processes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── Who is it for ─────────────────────────────────────── -->
+    <section class="content-section" aria-labelledby="who-title">
+      <div class="section-inner">
+        <span class="section-label">Who is it for?</span>
+        <h2 class="section-title" id="who-title">Built for teams without a dedicated risk function</h2>
+        <div class="persona-grid">
+          <div class="persona-card">
+            <span class="persona-role">IT Manager</span>
+            <h3>IT managers at NIS2-subject SMEs</h3>
+            <p>You need to demonstrate cybersecurity governance to management and regulators. Open Risk Register provides a structured, NIST-based workflow to document your risk landscape without requiring a team of consultants.</p>
+          </div>
+          <div class="persona-card">
+            <span class="persona-role">Consultant</span>
+            <h3>Information security consultants</h3>
+            <p>You work with multiple clients who need NIS2 readiness. Use Open Risk Register to run fast, repeatable risk assessments &mdash; one per client system, exportable for your engagement records.</p>
+          </div>
+          <div class="persona-card">
+            <span class="persona-role">CISO / DPO</span>
+            <h3>CISOs at essential and important entities</h3>
+            <p>You need a documented starting point for your formal risk management programme. Open Risk Register provides a qualitative NIST SP 800-30 assessment you can build on with formal tooling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Limitations / Disclaimer ──────────────────────────── -->
+    <section class="content-section content-section--alt" aria-labelledby="disclaimer-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Important limitations</span>
+        <h2 class="section-title" id="disclaimer-title">What this tool does not do</h2>
+        <div class="disclaimer-box" role="note" aria-label="Limitations and disclaimer">
+          <strong>This tool is not a substitute for professional cybersecurity advice.</strong>
+          <ul>
+            <li><strong>Qualitative only.</strong> This tool produces qualitative risk scores (Very High to Very Low). It does not produce quantitative financial risk calculations or monetary loss estimates.</li>
+            <li><strong>No certification.</strong> Completing this assessment does not certify NIS2 compliance. NIS2 compliance involves legal obligations, incident reporting, and supervision by national authorities.</li>
+            <li><strong>Guidance, not legal advice.</strong> The tool helps document cybersecurity risks in a structured way. It does not constitute legal, regulatory, or professional security advice.</li>
+            <li><strong>Browser-only storage.</strong> Assessments are stored in localStorage. Clearing your browser data permanently deletes them. Export your work regularly as JSON.</li>
+            <li><strong>No incident reporting.</strong> This tool does not assist with NIS2 incident reporting obligations, which have specific timelines defined by your national competent authority.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ───────────────────────────────────────────────── -->
+    <section class="content-section" aria-labelledby="faq-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Frequently asked questions</span>
+        <h2 class="section-title" id="faq-title">Questions about Open Risk Register</h2>
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">
+              Is Open Risk Register really free?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a-1" role="region" aria-labelledby="faq-q-1">
+              <p>Yes. Open Risk Register is completely free to use. There is no account, no subscription, and no hidden cost. The tool runs entirely in your browser with no back-end service required.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">
+              How does this tool help with NIS2 compliance?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a-2" role="region" aria-labelledby="faq-q-2">
+              <p>The tool guides you through a structured risk assessment process aligned with NIS2 Article 21 security measures. It covers risk identification, likelihood scoring, impact scoring, and produces a risk register to document your cybersecurity governance obligations.</p>
+              <p>NIS2 requires entities to apply risk-based security measures. A documented risk assessment is the foundation of demonstrating that measures are "appropriate and proportionate."</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">
+              Is my data secure?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a-3" role="region" aria-labelledby="faq-q-3">
+              <p>Your data never leaves your browser. All processing happens client-side using browser localStorage. Nothing is sent to any server. The tool's source code is open source &mdash; you can review and verify exactly what it does.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">
+              Is this tool suitable for NIS2 essential entities?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a-4" role="region" aria-labelledby="faq-q-4">
+              <p>The tool is useful for both essential and important entities under NIS2. It is especially well-suited for SMEs and organisations starting their risk management journey. For large essential entities, the output can serve as a structured starting point or gap analysis.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">
+              What happens to my data if I close the browser?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a-5" role="region" aria-labelledby="faq-q-5">
+              <p>Your assessments are saved in your browser's localStorage and persist when you close and reopen the browser. However, clearing your browser's site data will delete your assessments permanently.</p>
+              <p>We strongly recommend using the JSON export feature to create regular backups of completed assessments.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a-6" id="faq-q-6">
+              Can I export the results?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a-6" role="region" aria-labelledby="faq-q-6">
+              <p>Yes. From Step 9 (Results) you can export your complete risk register as a JSON file for backup or further analysis. You can also print a formatted PDF report directly from the browser for sharing with management or auditors.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Final CTA ─────────────────────────────────────────── -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-section-inner">
+        <h2 id="cta-title">Start your first risk assessment today</h2>
+        <p>Free, private, and in your browser. No sign-up required.</p>
+        <a href="/app/" class="btn-cta">Open the Tool &#x2192;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer site-footer--rich" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <p class="footer-brand-name">Open Risk Register</p>
+        <p>Free, open-source NIS2 risk assessment tool based on NIST SP 800-30 R1. All data stays in your browser &mdash; no account, no server, no cost.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tool</h4>
+        <ul>
+          <li><a href="/app/">Start Assessment</a></li>
+          <li><a href="/nis2-risk-assessment-tool/">NIS2 Risk Assessment</a></li>
+          <li><a href="/nis2-risk-register-template/">Risk Register Template</a></li>
+          <li><a href="/examples/">Examples</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/nis2-for-smes/">NIS2 for SMEs</a></li>
+          <li><a href="/nis2-article-21-checklist/">Article 21 Checklist</a></li>
+          <li><a href="/nist-sp-800-30-risk-assessment-template/">NIST SP 800-30</a></li>
+          <li><a href="/local-first-security/">Local-First Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="/source-code/">Source Code</a></li>
+          <li><a href="/open-source-nis2-tool/">Open Source</a></li>
+          <li><a href="/alternatives/">Alternatives</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Open Risk Register. Developed by <a href="https://oak3.org" rel="noopener noreferrer" target="_blank">Oak3 Advisory B.V.</a></p>
+      <p>No data is transmitted to any server. All processing happens in your browser.</p>
+    </div>
+  </footer>
+
+  <script src="/dist/site.js" defer></script>
+</body>
+</html>

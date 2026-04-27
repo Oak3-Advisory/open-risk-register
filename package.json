@@ -1,0 +1,16 @@
+{
+  "name": "open-risk-register",
+  "version": "1.0.0",
+  "description": "Free NIS2 risk assessment tool based on NIST SP 800-30 R1",
+  "private": true,
+  "scripts": {
+    "build": "esbuild src/js/app.js --bundle --minify --outfile=dist/bundle.js && esbuild src/js/site.js --bundle --minify --outfile=dist/site.js && esbuild src/js/pdf.js --bundle --minify --outfile=dist/pdf-bundle.js && esbuild src/css/main.css --bundle --minify --loader:.woff2=file --outfile=dist/style.css && esbuild src/css/site.css --bundle --minify --outfile=dist/site.css && node -e \"const fs=require('fs');let h=fs.readFileSync('app/index.html','utf8');const v=Date.now();h=h.replace(/bundle\\.js\\?v=\\d+/g,'bundle.js?v='+v).replace(/pdf-bundle\\.js\\?v=\\d+/g,'pdf-bundle.js?v='+v).replace(/style\\.css\\?v=\\d+/g,'style.css?v='+v);fs.writeFileSync('app/index.html',h);\"",
+    "dev": "esbuild src/js/app.js --bundle --sourcemap --outfile=dist/bundle.js & esbuild src/js/site.js --bundle --sourcemap --outfile=dist/site.js & esbuild src/css/main.css --bundle --loader:.woff2=file --outfile=dist/style.css & esbuild src/css/site.css --bundle --outfile=dist/site.css"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.1"
+  },
+  "dependencies": {
+    "pdfmake": "^0.3.7"
+  }
+}

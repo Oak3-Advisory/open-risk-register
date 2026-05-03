@@ -14,8 +14,8 @@ export function render(assessment, updateFn) {
   const counts = { 'Very High': 0, 'High': 0, 'Moderate': 0, 'Low': 0, 'Very Low': 0 };
   events.forEach(e => { const r = effectiveRisk(e); if (counts[r] !== undefined) counts[r]++; });
 
-  const el = document.createElement('div');
-  el.innerHTML = `
+  const root = document.createElement('div');
+  root.innerHTML = `
     <!-- Report header (visible in print only — injected into #print-region by app) -->
 
     <div class="card">
@@ -151,7 +151,7 @@ export function render(assessment, updateFn) {
       </div>
     `;
 
-  wireNistButtons(el);
+  wireNistButtons(root);
 
   function doExport() {
     try {
@@ -242,8 +242,8 @@ export function render(assessment, updateFn) {
     });
   }
 
-  el.querySelector('#btn-pdf')?.addEventListener('click', async () => {
-    const btn = el.querySelector('#btn-pdf');
+  root.querySelector('#btn-pdf')?.addEventListener('click', async () => {
+    const btn = root.querySelector('#btn-pdf');
     const originalHTML = btn.innerHTML;
     btn.disabled = true;
     btn.textContent = 'Generating…';
@@ -257,12 +257,12 @@ export function render(assessment, updateFn) {
       btn.innerHTML = originalHTML;
     }
   });
-  el.querySelector('#btn-export')?.addEventListener('click', doExport);
-  el.querySelector('#btn-export-encrypted')?.addEventListener('click', doEncryptedExport);
-  el.querySelector('.btn-download-json')?.addEventListener('click', doExport);
-  el.querySelector('.btn-download-encrypted')?.addEventListener('click', doEncryptedExport);
+  root.querySelector('#btn-export')?.addEventListener('click', doExport);
+  root.querySelector('#btn-export-encrypted')?.addEventListener('click', doEncryptedExport);
+  root.querySelector('.btn-download-json')?.addEventListener('click', doExport);
+  root.querySelector('.btn-download-encrypted')?.addEventListener('click', doEncryptedExport);
 
-  return el;
+  return root;
 }
 
 export function validate(_a) { return { valid: true, errors: [] }; }

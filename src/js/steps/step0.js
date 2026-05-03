@@ -22,7 +22,7 @@ const TIER_LABELS = {
 };
 
 export function render(_state, { openAssessment }) {
-  const el = document.createElement('div');
+  const root = document.createElement('div');
   let selectedScenario = null; // set when user picks a guided scenario
 
   function buildRiskSummary(a) {
@@ -45,7 +45,7 @@ export function render(_state, { openAssessment }) {
 
   function draw() {
     const assessments = listAssessments();
-    el.innerHTML = `
+    root.innerHTML = `
       <div class="flex items-start justify-between flex-wrap gap-4 mb-6">
         <div>
           <h1 class="dashboard-title">Risk Assessment Dashboard</h1>
@@ -195,28 +195,28 @@ export function render(_state, { openAssessment }) {
         </div>`}`;
 
     // Wire NIST buttons (tier-1, tier-3 info)
-    wireNistButtons(el);
+    wireNistButtons(root);
 
     // ── New assessment panel flow ──────────────────────────────
     function showPanel(id) {
       ['mode-panel', 'scenario-panel', 'tier-panel'].forEach(p => {
-        const panelEl = el.querySelector(`#${p}`);
+        const panelEl = root.querySelector(`#${p}`);
         if (panelEl) panelEl.hidden = (p !== id);
       });
-      el.querySelector(`#${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      root.querySelector(`#${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    el.querySelector('#btn-new')?.addEventListener('click', () => showPanel('mode-panel'));
+    root.querySelector('#btn-new')?.addEventListener('click', () => showPanel('mode-panel'));
 
     // Mode selection
-    el.querySelector('#btn-mode-blank')?.addEventListener('click', () => {
+    root.querySelector('#btn-mode-blank')?.addEventListener('click', () => {
       selectedScenario = null;
       showPanel('tier-panel');
     });
-    el.querySelector('#btn-mode-guided')?.addEventListener('click', () => showPanel('scenario-panel'));
+    root.querySelector('#btn-mode-guided')?.addEventListener('click', () => showPanel('scenario-panel'));
 
     // Scenario selection
-    el.querySelectorAll('[data-scenario]').forEach(card => {
+    root.querySelectorAll('[data-scenario]').forEach(card => {
       const activate = () => {
         const sc = SCENARIOS.find(s => s.id === card.dataset.scenario);
         if (!sc || !sc.available) return;
@@ -229,24 +229,24 @@ export function render(_state, { openAssessment }) {
     });
 
     // Back buttons
-    el.querySelector('#btn-back-to-mode')?.addEventListener('click', () => showPanel('mode-panel'));
-    el.querySelector('#btn-back-to-prev')?.addEventListener('click', () => {
+    root.querySelector('#btn-back-to-mode')?.addEventListener('click', () => showPanel('mode-panel'));
+    root.querySelector('#btn-back-to-prev')?.addEventListener('click', () => {
       showPanel(selectedScenario ? 'scenario-panel' : 'mode-panel');
     });
 
     // Wire events
-    el.querySelector('#file-import')?.addEventListener('change', handleImport);
-    el.querySelector('#btn-delete-all')?.addEventListener('click', handleDeleteAll);
-    el.querySelector('#btn-tier-org')?.addEventListener('click', () => startNew('org'));
-    el.querySelector('#btn-tier-system')?.addEventListener('click', () => startNew('system'));
-    el.querySelectorAll('[data-open]').forEach(btn => {
+    root.querySelector('#file-import')?.addEventListener('change', handleImport);
+    root.querySelector('#btn-delete-all')?.addEventListener('click', handleDeleteAll);
+    root.querySelector('#btn-tier-org')?.addEventListener('click', () => startNew('org'));
+    root.querySelector('#btn-tier-system')?.addEventListener('click', () => startNew('system'));
+    root.querySelectorAll('[data-open]').forEach(btn => {
       btn.addEventListener('click', () => openAssessment(btn.dataset.open));
       btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openAssessment(btn.dataset.open); });
     });
-    el.querySelectorAll('.btn-open').forEach(btn => btn.addEventListener('click', () => openAssessment(btn.dataset.id)));
-    el.querySelectorAll('.btn-export').forEach(btn => btn.addEventListener('click', () => handleExport(btn.dataset.id)));
-    el.querySelectorAll('.btn-export-encrypted').forEach(btn => btn.addEventListener('click', () => handleEncryptedExport(btn.dataset.id)));
-    el.querySelectorAll('.btn-delete').forEach(btn => btn.addEventListener('click', () => handleDelete(btn.dataset.id)));
+    root.querySelectorAll('.btn-open').forEach(btn => btn.addEventListener('click', () => openAssessment(btn.dataset.id)));
+    root.querySelectorAll('.btn-export').forEach(btn => btn.addEventListener('click', () => handleExport(btn.dataset.id)));
+    root.querySelectorAll('.btn-export-encrypted').forEach(btn => btn.addEventListener('click', () => handleEncryptedExport(btn.dataset.id)));
+    root.querySelectorAll('.btn-delete').forEach(btn => btn.addEventListener('click', () => handleDelete(btn.dataset.id)));
   }
 
   function startNew(tier) {
@@ -261,7 +261,7 @@ export function render(_state, { openAssessment }) {
     msg.className = `alert ${kind === 'error' ? 'alert-error' : 'alert-info'}`;
     msg.setAttribute('role', kind === 'error' ? 'alert' : 'status');
     msg.textContent = text;
-    el.prepend(msg);
+    root.prepend(msg);
     if (kind !== 'error') setTimeout(() => msg.remove(), 4000);
   }
 
@@ -463,7 +463,7 @@ export function render(_state, { openAssessment }) {
   }
 
   draw();
-  return el;
+  return root;
 }
 
 export function validate() { return { valid: true, errors: [] }; }

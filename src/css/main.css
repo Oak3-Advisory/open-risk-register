@@ -954,6 +954,18 @@ tbody tr:hover { background: var(--c-surface-alt); }
   border-top-color: rgba(255,255,255,0.16);
 }
 .site-footer--dark .footer-inner { color: rgba(255,255,255,0.82); }
+.site-footer--dark .footer-inner a {
+  color: rgba(255,255,255,0.72);
+  text-decoration: none;
+}
+.site-footer--dark .footer-inner a:hover {
+  color: rgba(255,255,255,0.92);
+}
+.site-footer--dark .footer-inner a:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.92);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
 .footer-inner {
   max-width: var(--max-w);
   margin: 0 auto;

@@ -5,7 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node build.mjs",
+    "build": "esbuild src/js/app.js --bundle --minify --outfile=dist/bundle.js && esbuild src/js/site.js --bundle --minify --outfile=dist/site.js && esbuild src/js/pdf.js --bundle --minify --outfile=dist/pdf-bundle.js && esbuild src/css/main.css --bundle --minify --loader:.woff2=file --outfile=dist/style.css && esbuild src/css/site.css --bundle --minify --outfile=dist/site.css",
     "dev": "esbuild src/js/app.js --bundle --sourcemap --outfile=dist/bundle.js & esbuild src/js/site.js --bundle --sourcemap --outfile=dist/site.js & esbuild src/js/pdf.js --bundle --sourcemap --outfile=dist/pdf-bundle.js & esbuild src/css/main.css --bundle --loader:.woff2=file --outfile=dist/style.css & esbuild src/css/site.css --bundle --outfile=dist/site.css",
     "test": "node --test test/*.test.js",
     "audit": "npm audit --audit-level=high"

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Supply Chain Risk Assessment for NIS2 | Open Risk Register</title>
+  <meta name="description" content="How to conduct a supply chain risk assessment under NIS2 Article 21(2)(d). Identify third-party dependencies, document supplier risks, and produce evidence of compliance." />
+  <link rel="canonical" href="https://openriskregister.org/supply-chain-risk-assessment-nis2/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Supply Chain Risk Assessment for NIS2 | Open Risk Register" />
+  <meta property="og:description" content="How to conduct a supply chain risk assessment under NIS2 Article 21(2)(d). Identify third-party dependencies, document supplier risks, and produce evidence of compliance." />
+  <meta property="og:url" content="https://openriskregister.org/supply-chain-risk-assessment-nis2/" />
+  <meta property="og:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Supply Chain Risk Assessment for NIS2 | Open Risk Register" />
+  <meta name="twitter:description" content="How to conduct a supply chain risk assessment under NIS2 Article 21(2)(d). Identify third-party dependencies, document supplier risks, and produce evidence of compliance." />
+  <meta name="twitter:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <link rel="stylesheet" href="/dist/style.css" />
+  <link rel="stylesheet" href="/dist/site.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://openriskregister.org/" },
+      { "@type": "ListItem", "position": 2, "name": "Supply Chain Risk Assessment for NIS2", "item": "https://openriskregister.org/supply-chain-risk-assessment-nis2/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="header-brand" aria-label="Open Risk Register &mdash; Home">
+        <svg class="header-icon" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+        </svg>
+        <div>
+          <span class="header-title">Open Risk Register</span>
+          <span class="header-subtitle">Free NIS2 Risk Assessment Tool</span>
+        </div>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/nis2-risk-assessment-tool/" class="nav-link">NIS2 Risk Tool</a>
+        <a href="/nis2-risk-register-template/" class="nav-link">Templates</a>
+        <a href="/nist-sp-800-30-risk-assessment-template/" class="nav-link">NIST 800-30</a>
+        <a href="/alternatives/" class="nav-link">Alternatives</a>
+        <a href="/source-code/" class="nav-link">Open Source</a>
+        <a href="/app/" class="btn btn-primary btn-sm">Start Assessment &#x2192;</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav aria-label="Breadcrumb" class="breadcrumb-wrap">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </li>
+      <li class="breadcrumb-sep" aria-hidden="true">/</li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-current" itemprop="name">Supply Chain Risk Assessment for NIS2</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    </ol>
+  </nav>
+
+  <section class="page-hero" aria-labelledby="page-h1">
+    <div class="page-hero-inner">
+      <h1 id="page-h1">Supply Chain Risk Assessment under NIS2</h1>
+      <p>NIS2 Article 21(2)(d) requires covered entities to assess and manage the cybersecurity risks introduced by their suppliers and service providers. This guide explains what that means in practice.</p>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <!-- What Article 21(2)(d) requires -->
+    <section class="content-section" aria-labelledby="requirement-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">The legal requirement</span>
+        <h2 class="section-title" id="requirement-title">What NIS2 Article 21(2)(d) requires</h2>
+        <p class="section-body">
+          NIS2 Article 21(2)(d) mandates that covered entities address &ldquo;security in supply chain, including
+          security-related aspects concerning the relationships between each entity and its direct suppliers or
+          service providers.&rdquo;
+        </p>
+        <p class="section-body">
+          This means you must identify which third parties have access to your systems or data, assess the
+          cybersecurity risks they introduce, and take proportionate measures to manage those risks. You must
+          also document this process as part of your broader risk management programme.
+        </p>
+        <p class="section-body">
+          Supply chain risk is not an afterthought in NIS2 &mdash; it is one of the ten mandatory measure areas
+          under Article 21(2), placed on equal footing with incident handling, business continuity, and access control.
+          Regulators can request evidence that you have assessed your supply chain and taken appropriate action.
+        </p>
+      </div>
+    </section>
+
+    <!-- Why supply chain risk matters -->
+    <section class="content-section content-section--alt" aria-labelledby="why-title">
+      <div class="section-inner">
+        <span class="section-label">Context</span>
+        <h2 class="section-title" id="why-title">Why supply chain risk is a primary attack vector</h2>
+        <div class="feature-row">
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Software supply chain attacks</h3>
+            <p>Attackers increasingly compromise software vendors and push malicious updates to all customers simultaneously. A single compromised supplier can expose hundreds of organisations at once.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Third-party access and data exposure</h3>
+            <p>Cloud providers, managed service providers, and SaaS vendors often hold or process sensitive operational data. A breach at your supplier is effectively a breach of your organisation.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Inherited vulnerabilities</h3>
+            <p>Open-source dependencies, commercial libraries, and third-party APIs can introduce vulnerabilities that are entirely outside your direct control. These must be identified and monitored.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Identifying third-party dependencies -->
+    <section class="content-section" aria-labelledby="identify-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Step 1</span>
+        <h2 class="section-title" id="identify-title">Identify your third-party dependencies</h2>
+        <p class="section-body">
+          Before you can assess supply chain risks, you need a complete picture of what third parties your
+          organisation relies on. This inventory forms the basis of your assessment.
+        </p>
+        <div class="disclaimer-box" role="note" aria-label="Third-party dependency inventory checklist">
+          <strong>Categories of third-party dependencies to inventory:</strong>
+          <ul>
+            <li><strong>Cloud infrastructure providers</strong> &mdash; IaaS, PaaS, hosting, DNS, CDN providers.</li>
+            <li><strong>SaaS applications</strong> &mdash; CRM, ERP, HR, communication, and collaboration platforms.</li>
+            <li><strong>Managed service providers (MSPs)</strong> &mdash; Outsourced IT, security operations, or network management.</li>
+            <li><strong>Software vendors</strong> &mdash; Commercial software with update mechanisms that could be compromised.</li>
+            <li><strong>Open-source dependencies</strong> &mdash; Libraries and frameworks your software or systems depend on.</li>
+            <li><strong>Physical and logistics suppliers</strong> &mdash; Third parties with physical access to your facilities or critical infrastructure.</li>
+            <li><strong>Payment and financial processors</strong> &mdash; Any third party handling financial data or transactions.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- What to assess -->
+    <section class="content-section content-section--alt" aria-labelledby="assess-title">
+      <div class="section-inner">
+        <span class="section-label">Step 2</span>
+        <h2 class="section-title" id="assess-title">What to assess for each supplier</h2>
+        <p class="section-body">
+          Once you have your inventory, you need to assess the risk each supplier introduces. Not all
+          suppliers carry equal risk &mdash; focus your effort on those with access to critical systems or sensitive data.
+        </p>
+        <div class="steps-grid">
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">1</div>
+            <h3>Access scope</h3>
+            <p>What data, systems, or network segments does this supplier have access to? Is the access privileged? Is it remote?</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">2</div>
+            <h3>Criticality</h3>
+            <p>What is the impact on your operations if this supplier is unavailable or compromised? Is there a fallback? How quickly could you switch?</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">3</div>
+            <h3>Supplier security posture</h3>
+            <p>Does the supplier hold security certifications (ISO 27001, SOC 2)? Do they publish security policies, incident reports, or a responsible disclosure programme?</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">4</div>
+            <h3>Contractual security requirements</h3>
+            <p>Does your contract with this supplier specify security obligations, incident notification timelines, audit rights, and data processing requirements?</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">5</div>
+            <h3>Geographic and jurisdictional exposure</h3>
+            <p>Where is the supplier based? Where is your data stored or processed? Are there data sovereignty or legal access risks under local laws?</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number-badge" aria-hidden="true">6</div>
+            <h3>Dependency chain</h3>
+            <p>Does your supplier itself rely on sub-processors or fourth parties that could introduce additional risk? (Cloud providers using other cloud providers, for example.)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What to document -->
+    <section class="content-section" aria-labelledby="document-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">Step 3</span>
+        <h2 class="section-title" id="document-title">What to document</h2>
+        <p class="section-body">
+          NIS2 compliance requires evidence. Your supply chain risk documentation should be sufficient
+          to demonstrate to a national authority that you have taken a proportionate, systematic approach.
+        </p>
+        <div class="disclaimer-box" role="note" aria-label="Supply chain documentation requirements">
+          <strong>Key documents to maintain:</strong>
+          <ul>
+            <li><strong>Supplier inventory</strong> &mdash; A register of all significant third-party dependencies with their access scope and criticality classification.</li>
+            <li><strong>Risk assessment records</strong> &mdash; For each significant supplier: identified risks, likelihood, impact, and treatment decisions.</li>
+            <li><strong>Contractual security requirements</strong> &mdash; Evidence that supplier contracts include appropriate security obligations and incident notification clauses.</li>
+            <li><strong>Review dates</strong> &mdash; Documentation of when each supplier was last assessed and the next planned review.</li>
+            <li><strong>Incident records</strong> &mdash; Any security incidents linked to supplier access or software, and the response taken.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- How Open Risk Register supports supply chain assessment -->
+    <section class="content-section content-section--navy" aria-labelledby="tool-title">
+      <div class="section-inner">
+        <span class="section-label">How the tool helps</span>
+        <h2 class="section-title" id="tool-title">How Open Risk Register supports supply chain assessment</h2>
+        <p class="section-body">
+          Open Risk Register&rsquo;s NIST SP 800-30 workflow is designed to capture supply chain threats
+          as first-class risk entries. You can conduct a dedicated supply chain assessment as a separate
+          assessment within the tool, or incorporate supply chain threat sources into a broader organisational assessment.
+        </p>
+        <div class="feature-row">
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Threat source catalogue includes supply chain actors</h3>
+            <p>The built-in NIST SP 800-30 threat source catalogue includes adversarial third-party suppliers, outsourced IT providers, and software vendors. Select them directly in Step 3 of the assessment.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2"/>
+                <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2"/>
+                <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2"/>
+                <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2"/>
+                <polyline points="10 9 9 9 8 9" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Document supplier-specific vulnerabilities</h3>
+            <p>Record predisposing conditions related to specific suppliers &mdash; insufficient contractual controls, unvetted sub-processors, or reliance on a single critical vendor &mdash; in the Vulnerabilities step.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Produce an exportable risk register</h3>
+            <p>The Results step generates a prioritised risk register with supply chain entries clearly identified. Export as JSON or PDF to share with management, auditors, or your national authority.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-section-inner">
+        <h2 id="cta-title">Assess your supply chain risks now</h2>
+        <p>Free, browser-based, and aligned with NIS2 Article 21(2)(d). No sign-up required.</p>
+        <a href="/app/" class="btn-cta">Open the Tool &#x2192;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer site-footer--rich" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <p class="footer-brand-name">Open Risk Register</p>
+        <p>Free, open-source NIS2 risk assessment tool based on NIST SP 800-30 R1. All data stays in your browser &mdash; no account, no server, no cost.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tool</h4>
+        <ul>
+          <li><a href="/app/">Start Assessment</a></li>
+          <li><a href="/nis2-risk-assessment-tool/">NIS2 Risk Assessment</a></li>
+          <li><a href="/nis2-risk-register-template/">Risk Register Template</a></li>
+          <li><a href="/examples/">Examples</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/nis2-for-smes/">NIS2 for SMEs</a></li>
+          <li><a href="/nis2-article-21-checklist/">Article 21 Checklist</a></li>
+          <li><a href="/nist-sp-800-30-risk-assessment-template/">NIST SP 800-30</a></li>
+          <li><a href="/local-first-security/">Local-First Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="/source-code/">Source Code</a></li>
+          <li><a href="/open-source-nis2-tool/">Open Source</a></li>
+          <li><a href="/alternatives/">Alternatives</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Open Risk Register. Developed by <a href="https://oak3.org" rel="noopener noreferrer" target="_blank">Oak3 Advisory B.V.</a></p>
+      <p>No data is transmitted to any server. All processing happens in your browser.</p>
+    </div>
+  </footer>
+
+  <script src="/dist/site.js" defer></script>
+</body>
+</html>

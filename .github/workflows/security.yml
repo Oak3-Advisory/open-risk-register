@@ -1,0 +1,44 @@
+name: Security and Build Checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-and-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Verify build is reproducible
+        run: |
+          git diff --exit-code
+          git diff --cached --exit-code
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run npm audit
+        run: npm audit --audit-level=high
+
+      - name: Run OSV Scanner
+        uses: google/osv-scanner-action@v1
+        with:
+          scan-args: |-
+            --lockfile=package-lock.json

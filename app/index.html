@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer" />
+  <title>Risk Assessment Tool &mdash; Open Risk Register</title>
+  <meta name="description" content="Run a structured NIS2 cybersecurity risk assessment using the NIST SP 800-30 guided workflow. Free, browser-based, no account required." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://openriskregister.org/app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Risk Assessment Tool &mdash; Open Risk Register" />
+  <meta property="og:description" content="Free, browser-based NIS2 risk assessment tool based on NIST SP 800-30 R1. No account required." />
+  <meta property="og:url" content="https://openriskregister.org/app/" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Risk Assessment Tool &mdash; Open Risk Register" />
+  <meta name="twitter:description" content="Free, browser-based NIS2 risk assessment tool based on NIST SP 800-30 R1." />
+  <link rel="stylesheet" href="/dist/style.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="header-brand" aria-label="Open Risk Register &mdash; Home">
+        <svg class="header-icon" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+        </svg>
+        <div>
+          <span class="header-title">Open Risk Register</span>
+          <span class="header-subtitle">NIS2 Risk Assessment Tool</span>
+        </div>
+      </a>
+      <button id="btn-new-assessment" class="btn btn-ghost btn-sm" type="button" aria-label="Return to dashboard">
+        Dashboard
+      </button>
+    </div>
+  </header>
+
+  <div id="progress-bar-container" class="progress-bar-container" role="navigation" aria-label="Assessment progress steps">
+  </div>
+
+  <main id="main-content" class="main-content" role="main">
+    <div id="step-content" class="step-content" aria-live="polite">
+    </div>
+    <nav class="wizard-nav" aria-label="Step navigation" id="wizard-nav">
+    </nav>
+  </main>
+
+  <div id="print-region"></div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <p>
+        <a href="/" class="footer-brand-link">Open Risk Register</a>
+        &mdash; based on <a href="https://csrc.nist.gov/publications/detail/sp/800-30/rev-1/final" rel="noopener noreferrer" target="_blank">NIST Special Publication 800-30 Revision 1</a> (September 2012).
+        No assessment data is transmitted or stored on a server &mdash; all processing happens client-side in your browser.
+      </p>
+      <p class="footer-disclaimer">
+        Disclaimer: This tool supports structured documentation of risk assessments and is not a substitute for professional cybersecurity expertise or legal advice.
+      </p>
+    </div>
+  </footer>
+
+  <!-- NIST Reference Modal -->
+  <dialog id="nist-modal" aria-labelledby="nist-modal-title" aria-modal="true">
+    <div class="nist-modal-inner">
+      <div class="nist-modal-header">
+        <h3 id="nist-modal-title" class="nist-modal-term"></h3>
+        <button type="button" id="nist-modal-close" class="btn-icon-close" aria-label="Close">&#x2715;</button>
+      </div>
+      <div class="nist-modal-body">
+        <div class="nist-modal-plain"></div>
+        <hr class="nist-modal-divider" />
+        <p class="nist-modal-source-label">Source &mdash; verbatim from NIST SP 800-30 Rev. 1</p>
+        <blockquote class="nist-modal-quote"></blockquote>
+        <p class="nist-modal-cite"></p>
+        <a class="nist-modal-link" href="#" target="_blank" rel="noopener noreferrer" hidden></a>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="/dist/bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>NIS2 Risk Register vs NIS2 Checklist — What's the Difference? | Open Risk Register</title>
+  <meta name="description" content="NIS2 risk register vs NIS2 checklist: what they are, how they differ, when to use each, and why NIS2 Article 21 requires both. A clear, practical explanation." />
+  <link rel="canonical" href="https://openriskregister.org/alternatives/nis2-risk-register-vs-nis2-checklist/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NIS2 Risk Register vs NIS2 Checklist — What's the Difference?" />
+  <meta property="og:description" content="NIS2 risk register vs NIS2 checklist: what they are, how they differ, when to use each, and why NIS2 Article 21 requires both." />
+  <meta property="og:url" content="https://openriskregister.org/alternatives/nis2-risk-register-vs-nis2-checklist/" />
+  <meta property="og:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NIS2 Risk Register vs NIS2 Checklist — What's the Difference?" />
+  <meta name="twitter:description" content="NIS2 risk register vs NIS2 checklist: differences, when to use each, and why NIS2 requires both." />
+  <meta name="twitter:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <link rel="stylesheet" href="/dist/style.css" />
+  <link rel="stylesheet" href="/dist/site.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://openriskregister.org/" },
+          { "@type": "ListItem", "position": 2, "name": "Alternatives", "item": "https://openriskregister.org/alternatives/" },
+          { "@type": "ListItem", "position": 3, "name": "NIS2 Risk Register vs NIS2 Checklist", "item": "https://openriskregister.org/alternatives/nis2-risk-register-vs-nis2-checklist/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a NIS2 risk register?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A NIS2 risk register is a structured document that records identified cybersecurity risks for a specific network or information system. Each entry includes a threat source, threat event, likelihood score, impact score, risk level, and treatment decision. It is a living document that should be reviewed and updated at least annually."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a NIS2 compliance checklist?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A NIS2 compliance checklist lists all 10 mandatory security measures from NIS2 Article 21(2) and tracks whether each is implemented, partially implemented, or missing. It gives a binary or three-state view of compliance status, without quantifying risk."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need both a risk register and a checklist for NIS2?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. NIS2 Article 21 requires both a risk assessment (which produces a risk register) and implementation of the 10 specific security measures (which a checklist tracks). The risk register tells you what to prioritise; the checklist confirms what you have implemented."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="header-brand" aria-label="Open Risk Register — Home">
+        <svg class="header-icon" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+        </svg>
+        <div>
+          <span class="header-title">Open Risk Register</span>
+          <span class="header-subtitle">Free NIS2 Risk Assessment Tool</span>
+        </div>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/nis2-risk-assessment-tool/" class="nav-link">NIS2 Risk Tool</a>
+        <a href="/nis2-risk-register-template/" class="nav-link">Templates</a>
+        <a href="/nist-sp-800-30-risk-assessment-template/" class="nav-link">NIST 800-30</a>
+        <a href="/alternatives/" class="nav-link active">Alternatives</a>
+        <a href="/source-code/" class="nav-link">Open Source</a>
+        <a href="/app/" class="btn btn-primary btn-sm">Start Assessment &#x2192;</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
+    <ol class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li class="breadcrumb-sep" aria-hidden="true">&#x203A;</li>
+      <li><a href="/alternatives/">Alternatives</a></li>
+      <li class="breadcrumb-sep" aria-hidden="true">&#x203A;</li>
+      <li><span class="breadcrumb-current">NIS2 Risk Register vs Checklist</span></li>
+    </ol>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <h1>NIS2 Risk Register vs NIS2 Checklist — What is the Difference?</h1>
+      <p>A NIS2 risk register and a NIS2 compliance checklist are different documents that serve different purposes. Both are required under NIS2 Article 21. Here is how to understand and use each one.</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ── Definitions ────────────────────────────────────── -->
+    <section class="content-section" aria-labelledby="defs-title">
+      <div class="section-inner">
+        <span class="section-label">Definitions</span>
+        <h2 class="section-title" id="defs-title">What each document is</h2>
+        <div class="feature-row">
+          <div class="feature-item">
+            <h3>NIS2 Risk Register</h3>
+            <p>A risk register is a structured record of identified cybersecurity risks. Each entry describes a specific threat (who or what could cause harm), the event that could occur, the likelihood given existing controls, the potential impact on your operations, and the decision on how to treat the risk.</p>
+            <p>The risk register is the output of a risk assessment process — such as NIST SP 800-30 — and is a living document that must be maintained and reviewed regularly.</p>
+          </div>
+          <div class="feature-item">
+            <h3>NIS2 Compliance Checklist</h3>
+            <p>A NIS2 checklist lists the 10 mandatory security measures from Article 21(2) and records whether each is implemented. It answers a simple binary question: do we have this control in place, yes or no?</p>
+            <p>A checklist gives a snapshot of your compliance status at a point in time. It is useful for management reporting and board oversight, but it does not tell you which risks are most severe or where to invest first.</p>
+          </div>
+          <div class="feature-item">
+            <h3>How they relate</h3>
+            <p>The risk register drives the checklist: your risk assessment identifies which threats matter most for your specific environment, which informs which Article 21 measures are most critical to implement.</p>
+            <p>The checklist then tracks whether those measures are in place. Together they demonstrate both that you have <em>thought about your risks</em> and that you have <em>done something about them</em>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Side-by-side comparison ────────────────────────── -->
+    <section class="content-section content-section--alt" aria-labelledby="cmp-title">
+      <div class="section-inner">
+        <span class="section-label">Comparison</span>
+        <h2 class="section-title" id="cmp-title">Risk register vs checklist — side by side</h2>
+
+        <div class="comparison-table-wrap">
+          <table class="comparison-table" aria-label="NIS2 risk register vs NIS2 checklist comparison">
+            <thead>
+              <tr>
+                <th scope="col">Dimension</th>
+                <th scope="col">NIS2 Risk Register</th>
+                <th scope="col">NIS2 Compliance Checklist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Primary question</td>
+                <td>What could go wrong, and how bad?</td>
+                <td>Do we have the required controls in place?</td>
+              </tr>
+              <tr>
+                <td>Output format</td>
+                <td>Table of risks with scores and treatment</td>
+                <td>List of measures with yes / partial / no status</td>
+              </tr>
+              <tr>
+                <td>Depth</td>
+                <td>Detailed — specific threats, assets, and scenarios</td>
+                <td>High-level — control categories only</td>
+              </tr>
+              <tr>
+                <td>Tailored to your organisation</td>
+                <td class="cmp-yes">Yes — specific to your assets and environment</td>
+                <td class="cmp-no">No — same 10 measures for all entities</td>
+              </tr>
+              <tr>
+                <td>Quantifies severity</td>
+                <td class="cmp-yes">Yes — likelihood × impact scoring</td>
+                <td class="cmp-no">No — binary or three-state only</td>
+              </tr>
+              <tr>
+                <td>Supports prioritisation</td>
+                <td class="cmp-yes">Yes — highest-risk items first</td>
+                <td class="cmp-no">No</td>
+              </tr>
+              <tr>
+                <td>Required by NIS2</td>
+                <td class="cmp-yes">Yes — Article 21(2)(a)</td>
+                <td class="cmp-yes">Yes — Article 21(1) and (2)</td>
+              </tr>
+              <tr>
+                <td>Audience</td>
+                <td>Security team, IT, operations</td>
+                <td>Management, board, auditors, regulators</td>
+              </tr>
+              <tr>
+                <td>Update frequency</td>
+                <td>Continuously or annually at minimum</td>
+                <td>Annually or after significant change</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ────────────────────────────────────────────── -->
+    <section class="content-section" aria-labelledby="faq-title">
+      <div class="section-inner section-inner--narrow">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title" id="faq-title">Frequently asked questions</h2>
+        <div class="faq-list" role="list">
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" type="button">
+              What is a NIS2 risk register?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>A NIS2 risk register is a structured document that records identified cybersecurity risks for a specific network or information system. Each entry includes a threat source, threat event, likelihood score, impact score, risk level, and treatment decision. It is a living document that should be reviewed and updated at least annually.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" type="button">
+              What is a NIS2 compliance checklist?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>A NIS2 compliance checklist lists all 10 mandatory security measures from NIS2 Article 21(2) and tracks whether each is implemented, partially implemented, or missing. It gives a binary or three-state view of compliance status, without quantifying risk.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" type="button">
+              Do I need both a risk register and a checklist for NIS2?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. NIS2 Article 21 requires both a risk assessment (which produces a risk register) and implementation of the 10 specific security measures (which a checklist tracks). The risk register tells you what to prioritise; the checklist confirms what you have implemented.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" type="button">
+              Can Open Risk Register produce both?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Open Risk Register generates a full risk register through its NIST SP 800-30 workflow. The Article 21 security measures are mapped throughout the assessment, so your risk register inherently covers the checklist categories. For a standalone checklist view, see the <a href="/nis2-article-21-checklist/">NIS2 Article 21 Checklist</a> page.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" type="button">
+              Which should I do first — the risk register or the checklist?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Start with a basic gap analysis (checklist) to understand your current state quickly. Then do a full risk assessment to quantify and prioritise the gaps. Use the risk register to drive your remediation plan, and revisit the checklist periodically to track progress.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ────────────────────────────────────────────── -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-section-inner">
+        <h2 id="cta-title">Build your NIS2 risk register today</h2>
+        <p>Free, browser-based, open source. No account. Your data never leaves your device.</p>
+        <a href="/app/" class="btn-cta">Start Risk Assessment &#x2192;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer site-footer--rich" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <p class="footer-brand-name">Open Risk Register</p>
+        <p>Free, open-source NIS2 risk assessment tool based on NIST SP 800-30 R1. All data stays in your browser — no account, no server, no cost.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tool</h4>
+        <ul>
+          <li><a href="/app/">Start Assessment</a></li>
+          <li><a href="/nis2-risk-assessment-tool/">NIS2 Risk Assessment</a></li>
+          <li><a href="/nis2-risk-register-template/">Risk Register Template</a></li>
+          <li><a href="/examples/">Examples</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/nis2-for-smes/">NIS2 for SMEs</a></li>
+          <li><a href="/nis2-article-21-checklist/">Article 21 Checklist</a></li>
+          <li><a href="/nist-sp-800-30-risk-assessment-template/">NIST SP 800-30</a></li>
+          <li><a href="/local-first-security/">Local-First Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="/source-code/">Source Code</a></li>
+          <li><a href="/open-source-nis2-tool/">Open Source</a></li>
+          <li><a href="/alternatives/">Alternatives</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Open Risk Register. Developed by <a href="https://oak3.org" rel="noopener noreferrer" target="_blank">Oak3 Advisory B.V.</a></p>
+      <p>No data is transmitted to any server. All processing happens in your browser.</p>
+    </div>
+  </footer>
+
+  <script src="/dist/site.js" defer></script>
+</body>
+</html>

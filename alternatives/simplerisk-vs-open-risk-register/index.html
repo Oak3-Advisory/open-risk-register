@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>SimpleRisk vs Open Risk Register — NIS2 Risk Tool Comparison</title>
+  <meta name="description" content="SimpleRisk vs Open Risk Register: a fair comparison for NIS2 risk assessment. Server-based risk management vs a zero-install, browser-only tool." />
+  <link rel="canonical" href="https://openriskregister.org/alternatives/simplerisk-vs-open-risk-register/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SimpleRisk vs Open Risk Register — NIS2 Risk Tool Comparison" />
+  <meta property="og:description" content="SimpleRisk vs Open Risk Register: a fair comparison for NIS2 risk assessment. Server-based vs browser-only." />
+  <meta property="og:url" content="https://openriskregister.org/alternatives/simplerisk-vs-open-risk-register/" />
+  <meta property="og:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SimpleRisk vs Open Risk Register — NIS2 Risk Tool Comparison" />
+  <meta name="twitter:description" content="SimpleRisk vs Open Risk Register: a fair NIS2 comparison." />
+  <meta name="twitter:image" content="https://openriskregister.org/og/open-risk-register.png" />
+  <link rel="stylesheet" href="/dist/style.css" />
+  <link rel="stylesheet" href="/dist/site.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://openriskregister.org/" },
+      { "@type": "ListItem", "position": 2, "name": "Alternatives", "item": "https://openriskregister.org/alternatives/" },
+      { "@type": "ListItem", "position": 3, "name": "SimpleRisk vs Open Risk Register", "item": "https://openriskregister.org/alternatives/simplerisk-vs-open-risk-register/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="header-brand" aria-label="Open Risk Register — Home">
+        <svg class="header-icon" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="currentColor"/>
+        </svg>
+        <div>
+          <span class="header-title">Open Risk Register</span>
+          <span class="header-subtitle">Free NIS2 Risk Assessment Tool</span>
+        </div>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="/nis2-risk-assessment-tool/" class="nav-link">NIS2 Risk Tool</a>
+        <a href="/nis2-risk-register-template/" class="nav-link">Templates</a>
+        <a href="/nist-sp-800-30-risk-assessment-template/" class="nav-link">NIST 800-30</a>
+        <a href="/alternatives/" class="nav-link active">Alternatives</a>
+        <a href="/source-code/" class="nav-link">Open Source</a>
+        <a href="/app/" class="btn btn-primary btn-sm">Start Assessment &#x2192;</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
+    <ol class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li class="breadcrumb-sep" aria-hidden="true">&#x203A;</li>
+      <li><a href="/alternatives/">Alternatives</a></li>
+      <li class="breadcrumb-sep" aria-hidden="true">&#x203A;</li>
+      <li><span class="breadcrumb-current">SimpleRisk vs Open Risk Register</span></li>
+    </ol>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <h1>SimpleRisk vs Open Risk Register</h1>
+      <p>SimpleRisk is a web-based risk management platform you host on your own server. Open Risk Register is a zero-install, browser-only NIS2 tool. Here is a detailed, fair comparison.</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ── Comparison table ───────────────────────────────── -->
+    <section class="content-section" aria-labelledby="cmp-title">
+      <div class="section-inner">
+        <span class="section-label">Feature comparison</span>
+        <h2 class="section-title" id="cmp-title">SimpleRisk vs Open Risk Register</h2>
+        <p class="section-body">SimpleRisk offers a broad set of risk management features with optional paid extras. Open Risk Register focuses narrowly on the NIS2 Article 21 risk assessment workflow with zero setup.</p>
+
+        <div class="comparison-table-wrap">
+          <table class="comparison-table" aria-label="SimpleRisk vs Open Risk Register feature comparison">
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col">SimpleRisk</th>
+                <th scope="col">Open Risk Register</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pricing</td>
+                <td class="cmp-part">Core free; extras paid (from ~$500/yr)</td>
+                <td class="cmp-yes">Free — always</td>
+              </tr>
+              <tr>
+                <td>Installation required</td>
+                <td class="cmp-no">Yes — PHP/MySQL server</td>
+                <td class="cmp-yes">No — runs in browser</td>
+              </tr>
+              <tr>
+                <td>Account required</td>
+                <td class="cmp-no">Yes</td>
+                <td class="cmp-yes">No</td>
+              </tr>
+              <tr>
+                <td>Data stays on your device</td>
+                <td class="cmp-no">No — server database</td>
+                <td class="cmp-yes">Yes — localStorage only</td>
+              </tr>
+              <tr>
+                <td>NIS2 Article 21 coverage</td>
+                <td class="cmp-part">Partial — requires manual mapping</td>
+                <td class="cmp-yes">Built-in</td>
+              </tr>
+              <tr>
+                <td>NIST SP 800-30 workflow</td>
+                <td class="cmp-part">Partial — custom scoring</td>
+                <td class="cmp-yes">Full 9-step workflow</td>
+              </tr>
+              <tr>
+                <td>Time to first risk entry</td>
+                <td class="cmp-no">Hours (install + config)</td>
+                <td class="cmp-yes">Under 5 minutes</td>
+              </tr>
+              <tr>
+                <td>Multi-user support</td>
+                <td class="cmp-yes">Yes</td>
+                <td class="cmp-no">No (single device)</td>
+              </tr>
+              <tr>
+                <td>Risk treatment workflows</td>
+                <td class="cmp-yes">Yes (with extras)</td>
+                <td class="cmp-part">Basic (within assessment)</td>
+              </tr>
+              <tr>
+                <td>Open source</td>
+                <td class="cmp-yes">Yes (core)</td>
+                <td class="cmp-yes">Yes (fully)</td>
+              </tr>
+              <tr>
+                <td>Export</td>
+                <td class="cmp-yes">Multiple formats</td>
+                <td class="cmp-part">JSON + PDF print</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Decision guide ────────────────────────────────── -->
+    <section class="content-section content-section--alt" aria-labelledby="decide-title">
+      <div class="section-inner">
+        <span class="section-label">Decision guide</span>
+        <h2 class="section-title" id="decide-title">Which tool is right for your situation?</h2>
+        <div class="feature-row">
+          <div class="feature-item">
+            <h3>Choose SimpleRisk when&hellip;</h3>
+            <p>Your team manages risk across multiple projects, systems, and business units and needs a central dashboard. You can dedicate time to install and maintain a PHP server. You need paid add-ons such as compliance mapping or risk prioritisation algorithms.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Choose Open Risk Register when&hellip;</h3>
+            <p>You need a NIS2 risk assessment done fast, privately, and without infrastructure cost. You are an SME or consultant with no in-house IT to maintain a server. Your risk data must not be stored outside your own device for legal or contractual reasons.</p>
+          </div>
+          <div class="feature-item">
+            <h3>About SimpleRisk</h3>
+            <p>SimpleRisk is a well-established open-source risk management tool with a large community. Its core is free; advanced features (compliance frameworks, additional scoring models) are sold as add-ons. It requires a LAMP/LEMP stack and is not designed for browser-only, offline use.</p>
+          </div>
+        </div>
+        <div class="disclaimer-box mt-8">
+          <strong>Note:</strong> SimpleRisk pricing and features are subject to change. Verify current information at <strong>simplerisk.com</strong>.
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ────────────────────────────────────────────── -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-section-inner">
+        <h2 id="cta-title">Try Open Risk Register — zero setup required</h2>
+        <p>Start a NIS2 risk assessment right now in your browser. No server, no account, no cost.</p>
+        <a href="/app/" class="btn-cta">Start Assessment &#x2192;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer site-footer--rich" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <p class="footer-brand-name">Open Risk Register</p>
+        <p>Free, open-source NIS2 risk assessment tool based on NIST SP 800-30 R1. All data stays in your browser — no account, no server, no cost.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tool</h4>
+        <ul>
+          <li><a href="/app/">Start Assessment</a></li>
+          <li><a href="/nis2-risk-assessment-tool/">NIS2 Risk Assessment</a></li>
+          <li><a href="/nis2-risk-register-template/">Risk Register Template</a></li>
+          <li><a href="/examples/">Examples</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/nis2-for-smes/">NIS2 for SMEs</a></li>
+          <li><a href="/nis2-article-21-checklist/">Article 21 Checklist</a></li>
+          <li><a href="/nist-sp-800-30-risk-assessment-template/">NIST SP 800-30</a></li>
+          <li><a href="/local-first-security/">Local-First Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="/source-code/">Source Code</a></li>
+          <li><a href="/open-source-nis2-tool/">Open Source</a></li>
+          <li><a href="/alternatives/">Alternatives</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Open Risk Register. Developed by <a href="https://oak3.org" rel="noopener noreferrer" target="_blank">Oak3 Advisory B.V.</a></p>
+      <p>No data is transmitted to any server. All processing happens in your browser.</p>
+    </div>
+  </footer>
+
+  <script src="/dist/site.js" defer></script>
+</body>
+</html>

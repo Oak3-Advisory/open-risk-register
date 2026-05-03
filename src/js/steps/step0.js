@@ -15,11 +15,21 @@ import { MAX_IMPORT_BYTES } from '../schema.js';
 import { esc, fmtDate, levelClass, downloadFile, wireNistButtons, el, buttonEl, inputEl } from '../utils.js';
 import { SCALE } from '../data.js';
 import { SCENARIOS } from '../scenarios.js';
+import { trackEvent } from '../tracking.js';
 
 const TIER_LABELS = {
   org:    { badge: 'tier-badge-org',    text: 'Org / Process' },
   system: { badge: 'tier-badge-system', text: 'System' },
 };
+
+function trackStartAssessment({ tier, scenarioId }) {
+  const payload = {
+    tier,
+    mode: scenarioId ? 'guided' : 'blank',
+  };
+  if (scenarioId) payload.scenarioId = scenarioId;
+  trackEvent('start_assessment', payload);
+}
 
 export function render(_state, { openAssessment }) {
   const root = document.createElement('div');
@@ -186,8 +196,8 @@ export function render(_state, { openAssessment }) {
               </div>
               <div class="assessment-card-actions">
                 <button class="btn btn-secondary btn-sm btn-open" data-id="${esc(a.id)}" type="button">Open</button>
+                <button class="btn btn-primary btn-sm btn-export-encrypted" data-id="${esc(a.id)}" type="button">Export Encrypted</button>
                 <button class="btn btn-secondary btn-sm btn-export" data-id="${esc(a.id)}" type="button">Export JSON</button>
-                <button class="btn btn-secondary btn-sm btn-export-encrypted" data-id="${esc(a.id)}" type="button">Export Encrypted</button>
                 <button class="btn btn-sm btn-outline-danger btn-delete" data-id="${esc(a.id)}" type="button"
                   aria-label="Delete assessment ${esc(a.name)}">Delete</button>
               </div>
@@ -210,16 +220,21 @@ export function render(_state, { openAssessment }) {
 
     // Mode selection
     root.querySelector('#btn-mode-blank')?.addEventListener('click', () => {
+      trackEvent('assessment_mode_blank');
       selectedScenario = null;
       showPanel('tier-panel');
     });
-    root.querySelector('#btn-mode-guided')?.addEventListener('click', () => showPanel('scenario-panel'));
+    root.querySelector('#btn-mode-guided')?.addEventListener('click', () => {
+      trackEvent('assessment_mode_guided');
+      showPanel('scenario-panel');
+    });
 
     // Scenario selection
     root.querySelectorAll('[data-scenario]').forEach(card => {
       const activate = () => {
         const sc = SCENARIOS.find(s => s.id === card.dataset.scenario);
         if (!sc || !sc.available) return;
+        trackEvent('guided_option_selected', { scenarioId: sc.id, scenarioName: sc.name });
         selectedScenario = sc;
         // Guided scenarios always use org tier — skip tier panel
         startNew('org');
@@ -253,6 +268,7 @@ export function render(_state, { openAssessment }) {
     const a = createAssessment(tier);
     if (selectedScenario) applyScenario(a, selectedScenario);
     saveAssessment(a);
+    trackStartAssessment({ tier, scenarioId: selectedScenario?.id });
     openAssessment(a.id);
   }
 
@@ -269,6 +285,7 @@ export function render(_state, { openAssessment }) {
     const file = e.target.files?.[0];
     if (!file) return;
     if (file.size > MAX_IMPORT_BYTES) {
+      trackEvent('import_assessment', { status: 'failed', reason: 'file_too_large' });
       showStatus('error', 'Import failed: files larger than 1 MB are not supported.');
       e.target.value = '';
       return;
@@ -277,8 +294,9 @@ export function render(_state, { openAssessment }) {
     reader.onload = async ev => {
       const payload = String(ev.target?.result ?? '');
       try {
+        const format = isEncryptedImportDocument(payload) ? 'encrypted' : 'json';
         let id;
-        if (isEncryptedImportDocument(payload)) {
+        if (format === 'encrypted') {
           const passphrase = await showPassphraseDialog({
             title: 'Decrypt encrypted backup',
             description: 'Enter the passphrase used when the encrypted backup was created.',
@@ -290,9 +308,11 @@ export function render(_state, { openAssessment }) {
         } else {
           id = importAssessmentFromJson(payload);
         }
+        trackEvent('import_assessment', { status: 'success', format });
         draw();
         showStatus('info', 'Assessment imported successfully.');
       } catch (err) {
+        trackEvent('import_assessment', { status: 'failed' });
         showStatus('error', `Import failed: ${err.message}`);
       }
     };
@@ -306,6 +326,7 @@ export function render(_state, { openAssessment }) {
       const a = listAssessments().find(x => x.id === id);
       const filename = `risk-assessment-${(a?.name ?? id).replace(/[^a-z0-9]/gi, '-').toLowerCase()}.json`;
       downloadFile(json, filename, 'application/json');
+      trackEvent('export_json', { source: 'dashboard' });
     } catch (err) {
       showStatus('error', `Export failed: ${err.message}`);
     }
@@ -325,6 +346,7 @@ export function render(_state, { openAssessment }) {
       const encrypted = await exportAssessmentToEncryptedJson(id, passphrase);
       const filename = `risk-assessment-${(assessment?.name ?? id).replace(/[^a-z0-9]/gi, '-').toLowerCase()}.encrypted.json`;
       downloadFile(encrypted, filename, 'application/json');
+      trackEvent('export_encrypted', { source: 'dashboard' });
       showStatus('info', 'Encrypted backup created successfully.');
     } catch (err) {
       showStatus('error', `Encrypted export failed: ${err.message}`);

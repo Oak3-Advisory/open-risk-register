@@ -2,6 +2,7 @@
 import { esc, badgeHtml, levelClass, computeRisk, downloadFile, wireNistButtons, el, buttonEl, inputEl } from '../utils.js';
 import { SCALE, RISK_MATRIX, OVERALL_LIKELIHOOD_MATRIX } from '../data.js';
 import { exportAssessmentToJson, exportAssessmentToEncryptedJson } from '../state.js';
+import { trackEvent } from '../tracking.js';
 
 const ORDER = ['Very High', 'High', 'Moderate', 'Low', 'Very Low', ''];
 
@@ -33,11 +34,11 @@ export function render(assessment, updateFn) {
                 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><polyline points="14,2 14,8 20,8"/></svg>
                 Export PDF
               </button>
-              <button id="btn-export" class="btn btn-primary" type="button">
+              <button id="btn-export-encrypted" class="btn btn-primary" type="button">Export Encrypted</button>
+              <button id="btn-export" class="btn btn-secondary" type="button">
                 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Export JSON
               </button>
-              <button id="btn-export-encrypted" class="btn btn-secondary" type="button">Export Encrypted</button>
             </div>
           </div>
         </div>
@@ -54,16 +55,16 @@ export function render(assessment, updateFn) {
             <div class="completion-banner-body">
               ${(assessment.completedSteps ?? []).length >= 8 ? `
               <strong>Assessment complete &mdash; well done!</strong>
-              <p>You have worked through all the steps and your risk register is ready. We recommend <strong>downloading your assessment as a JSON file</strong> right now &mdash; it keeps a full backup of everything you have entered and lets you reload or share it at any time.</p>
+              <p>You have worked through all the steps and your risk register is ready. We recommend <strong>downloading an encrypted backup</strong> right now &mdash; it protects the full assessment while still letting you reload or share it later.</p>
               ` : `
               <strong>Your results so far</strong>
-              <p>You can review your risk register at any stage. Once you have finished all steps, we recommend <strong>saving your assessment as a JSON file</strong> so you never lose your work.</p>
+              <p>You can review your risk register at any stage. Once you have finished all steps, we recommend <strong>saving an encrypted backup</strong> so you do not lose your work and keep the data better protected.</p>
               `}
-              <button class="btn btn-primary btn-sm btn-download-json" type="button">
+              <button class="btn btn-primary btn-sm btn-download-encrypted" type="button">Download encrypted backup</button>
+              <button class="btn btn-secondary btn-sm btn-download-json" type="button">
                 <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Download JSON backup
               </button>
-              <button class="btn btn-secondary btn-sm btn-download-encrypted" type="button">Download encrypted backup</button>
             </div>
           </div>
 
@@ -158,6 +159,7 @@ export function render(assessment, updateFn) {
       const json = exportAssessmentToJson(assessment.id);
       const filename = `risk-assessment-${(assessment.name || assessment.id).replace(/[^a-z0-9]/gi, '-').toLowerCase()}.json`;
       downloadFile(json, filename, 'application/json');
+      trackEvent('export_json', { source: 'results' });
     } catch (err) {
       alert(`Export failed: ${err.message}`);
     }
@@ -226,6 +228,7 @@ export function render(assessment, updateFn) {
       const encrypted = await exportAssessmentToEncryptedJson(assessment.id, passphrase);
       const filename = `risk-assessment-${(assessment.name || assessment.id).replace(/[^a-z0-9]/gi, '-').toLowerCase()}.encrypted.json`;
       downloadFile(encrypted, filename, 'application/json');
+      trackEvent('export_encrypted', { source: 'results' });
     } catch (err) {
       alert(`Encrypted export failed: ${err.message}`);
     }
@@ -250,6 +253,7 @@ export function render(assessment, updateFn) {
     try {
       await loadPdfBundle();
       window.generateRiskPdf(assessment);
+      trackEvent('export_pdf', { source: 'results' });
     } catch (e) {
       alert(`PDF generation failed: ${e.message}`);
     } finally {

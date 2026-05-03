@@ -11,6 +11,7 @@ import * as step6 from './steps/step6.js';
 import * as step7 from './steps/step7.js';
 import * as step8 from './steps/step8.js';
 import * as step9 from './steps/step9.js';
+import { trackEvent } from './tracking.js';
 
 const STEPS = [step0, step1, step2, step3, step4, step5, step6, step7, step8, step9];
 const STEP_LABELS = ['Dashboard', 'Setup', 'Risk Model', 'Threat Sources', 'Threat Events',
@@ -190,6 +191,14 @@ function renderNav() {
 
 function renderStep(step) {
   currentStep = step;
+
+  if (step >= 1 && step <= 9) {
+    trackEvent(`step-${step}`, {
+      step,
+      stepLabel: STEP_LABELS[step],
+    });
+  }
+
   scrollTop();
   renderProgressBar();
 

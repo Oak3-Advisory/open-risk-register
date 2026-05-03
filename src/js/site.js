@@ -1,6 +1,8 @@
 // Open Risk Register — site.js
 // Lightweight interactivity for marketing pages (nav + FAQ accordion).
 
+import { trackEvent } from './tracking.js';
+
 // ── Mobile nav toggle ────────────────────────────────────────
 const navToggle = document.querySelector('.nav-toggle');
 const siteNav   = document.querySelector('.site-nav');
@@ -38,5 +40,15 @@ document.querySelectorAll('.faq-question').forEach(btn => {
       btn.setAttribute('aria-expanded', 'true');
       item.classList.add('is-open');
     }
+  });
+});
+
+// ── Start assessment CTA tracking (marketing pages) ─────────
+document.querySelectorAll('a[href="/app/"], a[href="/app"]').forEach(link => {
+  link.addEventListener('click', () => {
+    trackEvent('start_assessment_cta_click', {
+      sourcePath: window.location.pathname,
+      linkText: (link.textContent || '').trim(),
+    });
   });
 });

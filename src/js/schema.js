@@ -136,7 +136,7 @@ function uniq(values) {
   return [...new Set(values)];
 }
 
-function normalizeThreatSource(item, idFactory, { preserveIds }) {
+function normalizeThreatSource(item, idFactory, { preserveIds, allowIncompleteDrafts = false }) {
   assertSafeObject(item, 'Threat source');
   assertKnownKeys(item, THREAT_SOURCE_KEYS, 'Threat source');
 
@@ -155,7 +155,7 @@ function normalizeThreatSource(item, idFactory, { preserveIds }) {
     value: {
       id: nextId,
       refId: refId || null,
-      name: readString(item.name, 'Threat source name', { maxBytes: LIMITS.shortText, allowEmpty: false }),
+      name: readString(item.name, 'Threat source name', { maxBytes: LIMITS.shortText, allowEmpty: allowIncompleteDrafts && isCustom }),
       type,
       isCustom,
       inScope: readBoolean(item.inScope, 'Threat source scope flag', true),
@@ -168,7 +168,7 @@ function normalizeThreatSource(item, idFactory, { preserveIds }) {
   };
 }
 
-function normalizeThreatEvent(item, idFactory, sourceIdMap, { preserveIds, allowUnknownSourceRefs = false }) {
+function normalizeThreatEvent(item, idFactory, sourceIdMap, { preserveIds, allowUnknownSourceRefs = false, allowIncompleteDrafts = false }) {
   assertSafeObject(item, 'Threat event');
   assertKnownKeys(item, THREAT_EVENT_KEYS, 'Threat event');
 
@@ -195,7 +195,7 @@ function normalizeThreatEvent(item, idFactory, sourceIdMap, { preserveIds, allow
   return {
     id: nextId,
     refId: refId || null,
-    name: readString(item.name, 'Threat event name', { maxBytes: LIMITS.mediumText, allowEmpty: false }),
+    name: readString(item.name, 'Threat event name', { maxBytes: LIMITS.mediumText, allowEmpty: allowIncompleteDrafts && isCustom }),
     description: readString(item.description ?? '', 'Threat event description', { maxBytes: LIMITS.longText }),
     type,
     isCustom,
@@ -214,21 +214,21 @@ function normalizeThreatEvent(item, idFactory, sourceIdMap, { preserveIds, allow
   };
 }
 
-function normalizeVulnerability(item, idFactory, { preserveIds }) {
+function normalizeVulnerability(item, idFactory, { preserveIds, allowIncompleteDrafts = false }) {
   assertSafeObject(item, 'Vulnerability');
   assertKnownKeys(item, VULNERABILITY_KEYS, 'Vulnerability');
 
   const rawId = readString(item.id ?? '', 'Vulnerability id', { maxBytes: LIMITS.id, allowEmpty: true });
   return {
     id: preserveIds ? (rawId || idFactory()) : idFactory(),
-    name: readString(item.name, 'Vulnerability name', { maxBytes: LIMITS.mediumText, allowEmpty: false }),
+    name: readString(item.name, 'Vulnerability name', { maxBytes: LIMITS.mediumText, allowEmpty: allowIncompleteDrafts }),
     description: readString(item.description ?? '', 'Vulnerability description', { maxBytes: LIMITS.longText }),
     severity: readString(item.severity ?? '', 'Vulnerability severity', { maxBytes: LIMITS.shortText, enumSet: SCALE_SET }),
     notes: readString(item.notes ?? '', 'Vulnerability notes', { maxBytes: LIMITS.notes }),
   };
 }
 
-function normalizePredisposingCondition(item, idFactory, { preserveIds }) {
+function normalizePredisposingCondition(item, idFactory, { preserveIds, allowIncompleteDrafts = false }) {
   assertSafeObject(item, 'Predisposing condition');
   assertKnownKeys(item, PREDISPOSING_KEYS, 'Predisposing condition');
 
@@ -243,7 +243,7 @@ function normalizePredisposingCondition(item, idFactory, { preserveIds }) {
   return {
     id: preserveIds ? (rawId || idFactory()) : idFactory(),
     refId: refId || null,
-    name: readString(item.name, 'Predisposing condition name', { maxBytes: LIMITS.mediumText, allowEmpty: false }),
+    name: readString(item.name, 'Predisposing condition name', { maxBytes: LIMITS.mediumText, allowEmpty: allowIncompleteDrafts && isCustom }),
     description: readString(item.description ?? '', 'Predisposing condition description', { maxBytes: LIMITS.longText }),
     pervasiveness: readString(item.pervasiveness ?? '', 'Predisposing condition pervasiveness', { maxBytes: LIMITS.shortText, enumSet: SCALE_SET }),
     notes: readString(item.notes ?? '', 'Predisposing condition notes', { maxBytes: LIMITS.notes }),
@@ -251,7 +251,7 @@ function normalizePredisposingCondition(item, idFactory, { preserveIds }) {
   };
 }
 
-function normalizeAssessment(rawAssessment, { preserveIds = false, idFactory, allowUnknownSourceRefs = false }) {
+function normalizeAssessment(rawAssessment, { preserveIds = false, idFactory, allowUnknownSourceRefs = false, allowIncompleteDrafts = false }) {
   assertSafeObject(rawAssessment, 'Assessment');
   assertKnownKeys(rawAssessment, ASSESSMENT_KEYS, 'Assessment');
 
@@ -273,14 +273,14 @@ function normalizeAssessment(rawAssessment, { preserveIds = false, idFactory, al
 
   const sourceIdMap = new Map();
   const threatSources = threatSourcesRaw.map(item => {
-    const normalized = normalizeThreatSource(item, idFactory, { preserveIds });
+    const normalized = normalizeThreatSource(item, idFactory, { preserveIds, allowIncompleteDrafts });
     if (normalized.oldId) sourceIdMap.set(normalized.oldId, normalized.value.id);
     return normalized.value;
   });
 
-  const threatEvents = threatEventsRaw.map(item => normalizeThreatEvent(item, idFactory, sourceIdMap, { preserveIds, allowUnknownSourceRefs }));
-  const vulnerabilities = vulnerabilitiesRaw.map(item => normalizeVulnerability(item, idFactory, { preserveIds }));
-  const predisposingConditions = predisposingRaw.map(item => normalizePredisposingCondition(item, idFactory, { preserveIds }));
+  const threatEvents = threatEventsRaw.map(item => normalizeThreatEvent(item, idFactory, sourceIdMap, { preserveIds, allowUnknownSourceRefs, allowIncompleteDrafts }));
+  const vulnerabilities = vulnerabilitiesRaw.map(item => normalizeVulnerability(item, idFactory, { preserveIds, allowIncompleteDrafts }));
+  const predisposingConditions = predisposingRaw.map(item => normalizePredisposingCondition(item, idFactory, { preserveIds, allowIncompleteDrafts }));
   const completedSteps = uniq(
     (Array.isArray(rawAssessment.completedSteps) ? rawAssessment.completedSteps : [])
       .map(step => readInteger(step, 'Completed step', { min: 1, max: 9 }))
@@ -369,6 +369,15 @@ export function createAssessmentExportDocument(assessment, idFactory = () => ass
   };
 }
 
+export function sanitizeDraftAssessment(assessment, idFactory = () => assessment.id) {
+  return normalizeAssessment(assessment, {
+    preserveIds: true,
+    idFactory,
+    allowUnknownSourceRefs: true,
+    allowIncompleteDrafts: true,
+  });
+}
+
 export function sanitizeStore(store, idFactory) {
   if (!isPlainObject(store)) return { version: 2, assessments: {}, assessmentIds: [] };
 
@@ -387,7 +396,12 @@ export function sanitizeStore(store, idFactory) {
       const rawAssessment = store.assessments?.[rawId];
       if (!rawAssessment) continue;
       try {
-        const sanitized = normalizeAssessment(rawAssessment, { preserveIds: true, idFactory, allowUnknownSourceRefs: true });
+        const sanitized = normalizeAssessment(rawAssessment, {
+          preserveIds: true,
+          idFactory,
+          allowUnknownSourceRefs: true,
+          allowIncompleteDrafts: true,
+        });
         if (!sanitized.id || assessments[sanitized.id]) continue;
         assessments[sanitized.id] = sanitized;
         assessmentIds.push(sanitized.id);

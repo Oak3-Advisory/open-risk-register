@@ -202,3 +202,23 @@ test('overlong strings are rejected', () => {
 
   assert.throws(() => importAssessmentFromJson(wrapAssessment(assessment)), /too long/);
 });
+
+test('saving incomplete draft rows does not throw away in-progress work', () => {
+  const assessment = createAssessment('system');
+  assessment.name = 'Draft assessment';
+  assessment.vulnerabilities = [
+    { id: 'vuln-draft', name: '', description: '', severity: '', notes: '' },
+  ];
+  assessment.predisposingConditions = [
+    { id: 'pred-draft', refId: null, name: '', description: '', pervasiveness: '', notes: '', isCustom: true },
+  ];
+
+  assert.doesNotThrow(() => saveAssessment(assessment));
+
+  const saved = getAssessment(assessment.id);
+  assert.ok(saved);
+  assert.equal(saved.vulnerabilities.length, 1);
+  assert.equal(saved.vulnerabilities[0].name, '');
+  assert.equal(saved.predisposingConditions.length, 1);
+  assert.equal(saved.predisposingConditions[0].name, '');
+});

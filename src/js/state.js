@@ -5,6 +5,7 @@ import {
   createAssessmentExportDocument,
   isEncryptedImportDocument,
   parseImportedAssessment,
+  sanitizeDraftAssessment,
   sanitizeStore,
 } from './schema.js';
 
@@ -39,12 +40,12 @@ export function getAssessment(id) {
 export function saveAssessment(a) {
   const s = load();
   const now = new Date().toISOString();
-  const normalized = createAssessmentExportDocument({
+  const normalized = sanitizeDraftAssessment({
     ...a,
     id: a.id || uid(),
     createdAt: a.createdAt || now,
     updatedAt: now,
-  }).assessment;
+  }, () => a.id || uid());
 
   if (!s.assessments[normalized.id]) s.assessmentIds.unshift(normalized.id);
   s.assessments[normalized.id] = normalized;

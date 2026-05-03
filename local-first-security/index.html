@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <title>Local-First Security: Why Your Risk Data Should Stay in Your Browser | Open Risk Register</title>
   <meta name="description" content="Why local-first architecture matters for cybersecurity risk assessment tools. Learn how localStorage keeps sensitive risk data private, and why cloud-based risk tools introduce unnecessary exposure." />
@@ -29,6 +30,7 @@
     ]
   }
   </script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="e4cee312-fc99-4004-83c0-1d9c42f04a5f"></script>
 </head>
 <body>
 
@@ -222,24 +224,25 @@
     <section class="content-section" aria-labelledby="export-title">
       <div class="section-inner section-inner--narrow">
         <span class="section-label">Backup strategy</span>
-        <h2 class="section-title" id="export-title">Export as your backup strategy</h2>
+        <h2 class="section-title" id="export-title">Encrypted export as your backup strategy</h2>
         <p class="section-body">
           The main limitation of localStorage is that it is tied to a specific browser on a specific device.
           Clearing browser data, reinstalling the browser, or switching devices will result in data loss.
-          The mitigation is simple: export your assessments regularly.
+          The mitigation is simple: export encrypted backups regularly.
         </p>
         <div class="disclaimer-box" role="note" aria-label="Export and backup guidance">
           <strong>Recommended backup practice:</strong>
           <ul>
-            <li><strong>Export to JSON after each session</strong> &mdash; Use the export function in the Results step to save a complete JSON copy of your assessment. This file can be re-imported into any browser running the tool.</li>
-            <li><strong>Store exports securely</strong> &mdash; The JSON export contains your full risk data. Store it in an encrypted location (e.g., an encrypted folder or a password manager&rsquo;s secure notes feature).</li>
-            <li><strong>Do not store exports in cloud storage without encryption</strong> &mdash; Uploading an unencrypted risk assessment JSON to a cloud drive reintroduces the same exposure risks that local-first is designed to eliminate.</li>
+            <li><strong>Export encrypted backup after each session</strong> &mdash; Use the encrypted export function in the Results step to save a passphrase-protected copy of your full assessment. This file can be re-imported by entering the same passphrase.</li>
+            <li><strong>Keep the passphrase separate</strong> &mdash; Store backup files and passphrases in different secure locations so a single compromise does not expose both.</li>
+            <li><strong>Use JSON export only when needed for interoperability</strong> &mdash; JSON export is useful for integrations or manual analysis, but it is unencrypted by default and should be handled as sensitive data.</li>
+            <li><strong>Do not store unencrypted exports in cloud storage</strong> &mdash; Uploading unencrypted assessment files to cloud drives reintroduces the same exposure risks that local-first is designed to eliminate.</li>
             <li><strong>Print to PDF for governance records</strong> &mdash; The print-to-PDF function produces a formatted report suitable for management sign-off, board reporting, or regulatory evidence. PDFs can be archived in your document management system.</li>
           </ul>
         </div>
         <p class="section-body">
-          Local-first does not mean fragile. With a disciplined export practice, your risk assessment data
-          is both maximally private and fully portable.
+          Local-first does not mean fragile. With a disciplined encrypted-export practice, your risk assessment
+          data remains both highly private and fully portable.
         </p>
       </div>
     </section>

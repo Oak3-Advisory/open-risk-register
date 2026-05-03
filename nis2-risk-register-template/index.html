@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <title>Free NIS2 Risk Register Template | Open Risk Register</title>
   <meta name="description" content="Free NIS2 risk register template based on NIST SP 800-30. Browser-based, no download required. Covers threat sources, threat events, likelihood, impact, and risk level." />
@@ -32,7 +33,7 @@
         "operatingSystem": "Any modern web browser",
         "offers": {"@type":"Offer","price":"0","priceCurrency":"EUR"},
         "description": "Free NIS2 risk register template based on NIST SP 800-30 R1. Browser-based, no download required.",
-        "featureList": ["NIS2 Article 21 alignment","NIST SP 800-30 workflow","All mandatory risk register fields","JSON export","PDF export","Open source"]
+        "featureList": ["NIS2 Article 21 alignment","NIST SP 800-30 workflow","All mandatory risk register fields","Encrypted backup export","JSON export","PDF export","Open source"]
       },
       {
         "@type": "BreadcrumbList",
@@ -44,6 +45,7 @@
     ]
   }
   </script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="e4cee312-fc99-4004-83c0-1d9c42f04a5f"></script>
 </head>
 <body>
   <header class="site-header" role="banner">
@@ -126,7 +128,7 @@
           <div class="feature-item">
             <div class="feature-item-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <h3>Export-ready output</h3>
-            <p>Export your complete risk register as JSON for archiving, or print a formatted PDF report for management review &mdash; directly from the Results step.</p>
+            <p>Export your complete risk register as an encrypted backup for safer storage and sharing, or as JSON for archiving and analysis. You can also print a formatted PDF report for management review &mdash; directly from the Results step.</p>
           </div>
         </div>
       </div>
@@ -135,8 +137,9 @@
       <div class="section-inner section-inner--narrow">
         <span class="section-label">Export options</span>
         <h2 class="section-title" id="export-title">Take your risk register anywhere</h2>
-        <p class="section-body">Your completed risk register can be exported in two formats from the Results step.</p>
+        <p class="section-body">Your completed risk register can be exported in multiple formats from the Results step.</p>
         <ul class="nis2-list" aria-label="Export formats available">
+          <li><strong>Encrypted backup export</strong> &mdash; A passphrase-protected backup of your full assessment for safer storage and controlled sharing.</li>
           <li><strong>JSON export</strong> &mdash; A machine-readable backup of your full assessment including all inputs, scores, and the complete risk register. Archive it, share it with your IT security team, or use it to recreate the assessment.</li>
           <li><strong>PDF report</strong> &mdash; Print a formatted report directly from your browser including the assessment scope, risk register table, and risk response summary &mdash; ready for management sign-off or regulatory inspection.</li>
           <li><strong>Browser persistence</strong> &mdash; Assessments automatically persist in localStorage between browser sessions so you can return and update your register as your risk landscape changes.</li>
@@ -152,7 +155,7 @@
           <ul>
             <li><strong>Qualitative scores only.</strong> Risk levels are qualitative (Very Low to Very High). The template does not produce quantitative financial risk estimates.</li>
             <li><strong>No legal advice.</strong> The output does not constitute legal, regulatory, or professional security advice. Consult a qualified cybersecurity professional for NIS2 compliance questions.</li>
-            <li><strong>Browser storage.</strong> The register is stored in localStorage. Clear your browser data and it is gone. Export the JSON regularly as a backup.</li>
+            <li><strong>Browser storage.</strong> The register is stored in localStorage. Clear your browser data and it is gone. Export encrypted backups regularly (and JSON when needed).</li>
             <li><strong>No certification.</strong> Completing a risk register does not certify NIS2 compliance. Compliance also requires incident reporting, board-level governance, and national competent authority supervision.</li>
           </ul>
         </div>

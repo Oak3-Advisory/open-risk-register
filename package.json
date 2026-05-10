@@ -15,6 +15,6 @@
     "jsdom": "26.1.0"
   },
   "dependencies": {
-    "pdfmake": "0.3.7"
+    "pdfmake": "0.3.8"
   }
 }

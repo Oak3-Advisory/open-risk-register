@@ -44,7 +44,7 @@ jobs:
         run: npm audit --audit-level=high
 
   osv-scan:
-    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.5
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.8
     with:
       scan-args: |-
         --lockfile=package-lock.json
